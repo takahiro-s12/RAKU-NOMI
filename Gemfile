@@ -67,3 +67,10 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 #ロウグイン認証
 gem 'devise'
+#ランダムid付与
+gem 'public_uid'
+#レイアウト
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'kaminari','~> 1.2.1'
