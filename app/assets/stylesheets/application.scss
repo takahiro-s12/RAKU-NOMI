@@ -55,7 +55,12 @@
   }
   ul {
    list-style: none;
+   display: flex;
   }
+ }
+
+ .nav {
+  padding-left: 30px;
  }
 
  main {

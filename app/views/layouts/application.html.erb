@@ -15,7 +15,8 @@
         <div class="header-content">
           <%= link_to image_tag("img_logo.png", class: "logo"), root_path %>
           <ul>
-            <li><%= link_to 'RAKU NOMIの使い方', home_about_path %></li>
+            <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'nav' %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav' %>
           </ul>
         </div>
       </header>
