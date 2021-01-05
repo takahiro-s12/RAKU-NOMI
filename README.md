@@ -27,7 +27,7 @@
 ・[テーブル定義書](https://docs.google.com/spreadsheets/d/1poBIzwfWslCbR9eDg8jA1yChZ94MhKbCuuiBcsHhtbY/edit?usp=sharing)
 ・[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1K9ZD2wiAsEIE0_uJgHCIciOIz6-XSMD03FnUAGn-qxI/edit?usp=sharing)
 
-## チャレンジ要素一覧
+## 機能一覧
 https://docs.google.com/spreadsheets/d/1sA-AYTRjePb4g2L9rxUX8TkeQZZng8CmP0sZjSjjr-Q/edit?usp=sharing
 
 ## 開発環境
