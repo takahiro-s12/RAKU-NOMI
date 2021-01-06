@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   get "/users/search" => 'users#search'
   resources :users, only: [:show, :edit, :update]
+  resources :groups, only: [:new, :create, :show, :edit, :update] do
+    resources :memberships, only: [:new, :create, :destroy]
+  end
 end

@@ -1,0 +1,22 @@
+<div class="main-body">
+  <h2>グループ作成</h2>
+  <%= form_with model: @group, url: groups_path(@group), method: :post, local: true do |f| %>
+    <%= f.label "グループ名" %>
+    <%= f.text_field :name %>
+    <%= f.fields_for :membership do |s| %>
+      <div>
+        <p>追加メンバー</p>
+        <table class="table">
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+              <td><%= user.nickname %></td>
+              <td><%= s.check_box :user_id, { multiple: true, checked: @group.users.find_by(id: user.id).present?,include_hidden: false}, user[:id] %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
+    <%= f.submit "作成" %>
+  <% end %>
+</div>
