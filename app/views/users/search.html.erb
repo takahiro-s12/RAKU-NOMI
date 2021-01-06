@@ -1,0 +1,36 @@
+<div class="main-body">
+  <% if @users.present? %>
+    <% @users.each do |user| %>
+      <h3><%= user.family_name %><%= user.first_name %></h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'profile-image' %>
+          </div>
+          <div class="col-lg-6">
+            <table class="table table-borderless">
+              <tr>
+                <td>ニックネーム</td>
+                <td><%= user.nickname %></td>
+              </tr>
+              <tr>
+                <td>好きな食べ物</td>
+                <td><%= user.favorite_food %></td>
+              </tr>
+              <tr>
+                <td>好きな飲み物</td>
+                <td><%= user.favorite_drink %></td>
+              </tr>
+              <tr>
+                <td>嫌いな食べ物</td>
+                <td><%= user.hated_food %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>該当ユーザーはいませんでした</p>
+  <% end %>
+</div>

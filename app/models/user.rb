@@ -8,4 +8,9 @@ class User < ApplicationRecord
 
   generate_public_uid
   attachment :image
+
+  def self.search_for(content)
+      User.where(public_uid: content)
+  end
+
 end

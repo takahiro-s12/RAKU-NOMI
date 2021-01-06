@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def search
+    @content = params[:content]
+    @users = User.search_for(@content)
+  end
+
   private
 
   def user_params
