@@ -13,7 +13,7 @@
     <% if user_signed_in? %>
       <header>
         <div class="header-content">
-          <%= link_to image_tag("img_logo.png", class: "logo"), root_path %>
+          <%= link_to image_tag("img_logo.png", class: "logo"), user_path(current_user) %>
           <ul>
             <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'nav' %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav' %>

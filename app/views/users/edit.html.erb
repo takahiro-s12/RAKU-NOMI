@@ -1,2 +1,46 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="main-body">
+  <h2>ユーザー情報編集</h2>
+  <%= form_with model:current_user, url:"/users/#{current_user.id}", method: :patch, local:true do |f| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'profile-image' %><br>
+          <%= f.attachment_field :image %>
+        </div>
+        <div class="col-lg-6">
+          <table class="table table-borderless">
+            <tr>
+              <td><%= f.label "姓" %></td>
+              <td><%= f.text_field :family_name %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "名" %></td>
+              <td><%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "ニックネーム" %></td>
+              <td><%= f.text_field :nickname %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :email %></td>
+              <td><%= f.email_field :email %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "好きな食べ物" %></td>
+              <td><%= f.text_field :favorite_food %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "好きな飲み物" %></td>
+              <td><%= f.text_field :favorite_drink %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "嫌いな食べ物" %></td>
+              <td><%= f.text_field :hated_food %></td>
+            </tr>
+          </table>
+          <%= f.submit "更新" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
