@@ -27,6 +27,13 @@
               </tr>
             </table>
           </div>
+          <% unless user == current_user %>
+            <% if current_user.following?(user) %>
+              <%= link_to 'フォローを外す',unfollow_path(user.id), method: :post %>
+            <% else %>
+              <%= link_to 'フォローする', follow_path(user.id),method: :post %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>

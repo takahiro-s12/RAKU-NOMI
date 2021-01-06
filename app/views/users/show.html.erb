@@ -46,3 +46,31 @@
     </div>
   </div>
 </div>
+<div>
+  <div>
+    <div>
+      <p>フォローリスト</p>
+      <table class="table table-borderless">
+        <tr>
+          <thead>
+            <td></td>
+            <td>ニックネーム</td>
+            <td>好きな食べ物</td>
+            <td>好きな飲み物</td>
+            <td>嫌いな食べ物</td>
+          </thead>
+          <% current_user.following_user.each do |user| %>
+            <tbody>
+              <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+              <td><%= user.nickname %></td>
+              <td><%= user.favorite_food %></td>
+              <td><%= user.favorite_drink %></td>
+              <td><%= user.hated_food %></td>
+              <td><%= link_to 'フォローを外す', unfollow_path(user.id), method: :post %></td>
+            </tbody>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
