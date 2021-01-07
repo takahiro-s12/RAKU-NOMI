@@ -41,6 +41,7 @@
           <p>今後の飲み会予定</p>
           <table class="table">
           </table>
+          <%= link_to "グループを作る", new_group_path, class: 'btn btn-light' %>
         </div>
       </div>
     </div>
@@ -48,6 +49,16 @@
 </div>
 <div>
   <div>
+    <div>
+      <p>参加グループ一覧</p>
+      <% @groups.each do |group| %>
+      <table>
+        <tr>
+          <td><%= link_to group.name, group_path(group) %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
     <div>
       <p>フォローリスト</p>
       <table class="table table-borderless">
