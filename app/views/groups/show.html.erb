@@ -1,2 +1,32 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+<div class="main-body">
+  <h2><%= @group.name %></h2>
+  <div>
+  <!---飲み会追加、アンケートのリンク実装予定-->
+    <%= link_to "メンバーを追加する", "/groups/#{@group.id}/add_user", class: 'btn btn-light' %>
+  </div>
+  <div>
+    <p>今後の飲み会予定</p>
+    <table></table>
+  </div>
+  <div>
+    <p>メンバー</p>
+    <table>
+      <thead>
+        <td></td>
+        <td>ニックネーム</td>
+        <td>好きな食べ物</td>
+        <td>好きな飲み物</td>
+        <td>嫌いな食べ物</td>
+      </thead>
+      <% @group.users.each do |user| %>
+      <tbody>
+        <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+        <td><%= user.nickname %></td>
+        <td><%= user.favorite_food %></td>
+        <td><%= user.favorite_drink %></td>
+        <td><%= user.hated_food %></td>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

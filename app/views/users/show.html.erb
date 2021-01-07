@@ -50,6 +50,16 @@
 <div>
   <div>
     <div>
+      <p>参加グループ一覧</p>
+      <% @groups.each do |group| %>
+      <table>
+        <tr>
+          <td><%= link_to group.name, group_path(group) %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+    <div>
       <p>フォローリスト</p>
       <table class="table table-borderless">
         <tr>

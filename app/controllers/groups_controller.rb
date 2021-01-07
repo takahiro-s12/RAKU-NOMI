@@ -1,15 +1,14 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
+    @users = current_user.following_user & current_user.follower_user
     @group.users << current_user
-    @users = current_user.following_user && current_user.follower_user
-    @membership = Membership.new
   end
 
   def create
-    @group = Group.new(group_params)
-    @users = current_user.following_user && current_user.follower_user
-    @membership = Membership.new
+    @group = current_user.groups.build(group_params)
+    @group.users << current_user
+    @users = current_user.following_user & current_user.follower_user
     if @group.save
       redirect_to group_path(@group)
     else
@@ -25,6 +24,10 @@ class GroupsController < ApplicationController
   end
 
   def update
+  end
+
+  def add_user
+    @users = current_user.follower_user & current_user.following_user
   end
 
   private
