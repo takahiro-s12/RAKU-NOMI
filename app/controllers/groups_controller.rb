@@ -21,13 +21,20 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:id])
+    @users = current_user.follower_user & current_user.following_user
+    @group_user = GroupUser.new
   end
 
   def update
-  end
-
-  def add_user
+    @group = Group.find(params[:id])
     @users = current_user.follower_user & current_user.following_user
+    if @group.update(group_params)
+      @group.users << current_user
+      redirect_to group_path(@group)
+    else
+      render edit_group_path(@group)
+    end
   end
 
   private
@@ -35,4 +42,5 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, user_ids: [])
   end
+
 end
