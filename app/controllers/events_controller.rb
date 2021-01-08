@@ -38,6 +38,7 @@ class EventsController < ApplicationController
   end
 
   def add_user
+    @event = Event.find(params[:id])
     @group = Group.find(params[:group_id])
     @event_user = EventUser.new
   end

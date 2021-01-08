@@ -2,7 +2,7 @@ class EventUsersController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @event_user = EventUser.new(event_user_params)
-    @group = @event.group
+    @group = Group.find(params[:group_id])
     if @event_user.save
       redirect_to group_add_user_event_path(@group,@event)
     else

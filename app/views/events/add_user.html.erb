@@ -1,11 +1,13 @@
 <div class="main-body">
   <h2>メンバー追加</h2>
   <% @group.users.each do |user| %>
+  <% if @event.users.find_by(id: user.id).blank? %>
     <table class="table">
       <tr>
         <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
         <td><%= user.nickname %></td>
-        <td><%= link_to "追加する",group_event_event_users_path(@event, event_user: { event_id: @event.id , user_id: user.id }), method: :post %></td>
+        <td><%= link_to "追加する",group_event_event_users_path(@group, @event, event_user: { event_id: @event.id , user_id: user.id }), method: :post %></td>
     </table>
+  <% end %>
   <% end %>
 </div>
