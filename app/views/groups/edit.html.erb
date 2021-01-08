@@ -4,22 +4,21 @@
     <div>
       <%= f.label "グループ名" %>
       <%= f.text_field :name %>
-      <!--%= f.submit "更新" %-->
+      <%= f.submit "更新" %>
     </div>
-  <!--% end %-->
-  <!--%= form_with model: @group_user, url: "/groups/#{@group.id}/group_users", method: :post, local: :true do |f| %-->
+  <% end %>
     <div>
       <p>追加メンバー</p>
       <% @users.each do |user| %>
+        <% if @group.users.find_by(id: user.id).blank? %>
         <table class="table">
           <tr>
             <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
             <td><%= user.nickname %></td>
-            <td><%= f.check_box :user_ids, { multiple: true, check: @group.users.find_by(id: user.id).present?,include_hidden: false}, user[:id] %></td>
+            <td><%= link_to "追加する", group_group_users_path(@group, group_user: { group_id: @group.id , user_id: user.id } ), method: :post %></td>
           </tr>
         </table>
+        <% end %>
       <% end %>
-      <%= f.submit "追加" %>
     </div>
-  <% end %>
 </div>

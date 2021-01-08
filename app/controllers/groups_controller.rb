@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @group_user = @group.users.where(group_id: @group.id)
   end
 
   def edit
@@ -28,9 +29,7 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    @users = current_user.follower_user & current_user.following_user
     if @group.update(group_params)
-      @group.users << current_user
       redirect_to group_path(@group)
     else
       render edit_group_path(@group)

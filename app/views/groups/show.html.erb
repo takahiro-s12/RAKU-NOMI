@@ -3,6 +3,7 @@
   <div>
   <!---飲み会追加、アンケートのリンク実装予定-->
     <%= link_to "編集する", edit_group_path(@group), class: 'btn btn-light' %>
+    <%= link_to "飲み会を開く", new_group_event_path(@group), class: 'btn btn-light' %>
   </div>
   <div>
     <p>今後の飲み会予定</p>
@@ -25,6 +26,7 @@
         <td><%= user.favorite_food %></td>
         <td><%= user.favorite_drink %></td>
         <td><%= user.hated_food %></td>
+        <td><%= link_to "退会する", group_group_user_path(@group, group_user: { group_id: @group.id, user_id: user.id } ), method: :delete %></td>
       </tbody>
       <% end %>
     </table>
