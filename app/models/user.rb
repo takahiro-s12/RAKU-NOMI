@@ -15,6 +15,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :group_users
   has_many :event_users, dependent: :destroy
   has_many :events, through: :event_users
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   generate_public_uid
   attachment :image

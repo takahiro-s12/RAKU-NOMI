@@ -15,4 +15,7 @@ Rails.application.routes.draw do
       resources :event_users, only: [:create, :destroy]
     end
   end
+  resources :notifications, only: [:index]
+  delete "/notifications/destroy_all" => "notifications#destroy_all"
+  
 end

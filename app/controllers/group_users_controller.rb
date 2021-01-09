@@ -2,8 +2,9 @@ class GroupUsersController < ApplicationController
   def create
     @users = current_user.follower_user & current_user.following_user
     @group_user = GroupUser.new(group_user_params)
-    @group = Group.find(params[:group_id])
     if @group_user.save
+      group = Group.find(params[:group_id])
+      group.create_notification_by(current_user)
       redirect_to edit_group_path(@group)
     else
       render 'groups/edit'
