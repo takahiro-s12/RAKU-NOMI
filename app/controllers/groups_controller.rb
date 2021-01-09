@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
     @group.users << current_user
     @users = current_user.following_user & current_user.follower_user
     if @group.save
+      @group.create_notification_new_group!(current_user)
       redirect_to group_path(@group)
     else
       render new_group_path

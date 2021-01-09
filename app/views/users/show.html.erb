@@ -47,11 +47,11 @@
                 <td>開始時間</td>
               </tr>
             </thead>
-            <% current_user.events.each do |event| %>
+            <% @events.each do |event| %>
               <tboby>
                 <tr>
                   <td><%= event.date %></td>
-                  <td><%= link_to event.name, group_event_path(event) %></td>
+                  <td><%= link_to event.name, group_event_path(event.group_id, event) %></td>
                   <td><%= event.start_time %></td>
                 </tr>
               </tboby>

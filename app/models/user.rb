@@ -15,6 +15,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :group_users
   has_many :event_users, dependent: :destroy
   has_many :events, through: :event_users
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   generate_public_uid
   attachment :image
@@ -38,5 +40,15 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-
+  
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
 end

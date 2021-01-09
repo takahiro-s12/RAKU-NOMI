@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_08_083348) do
+ActiveRecord::Schema.define(version: 2021_01_09_024055) do
 
   create_table "event_users", force: :cascade do |t|
     t.integer "event_id"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 2021_01_08_083348) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visiter_id"
+    t.integer "visited_id"
+    t.integer "group_id"
+    t.integer "event_id"
+    t.string "action"
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
