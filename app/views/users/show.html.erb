@@ -40,6 +40,22 @@
         <div>
           <p>今後の飲み会予定</p>
           <table class="table">
+            <thead>
+              <tr>
+                <td>日程</td>
+                <td>飲み会名</td>
+                <td>開始時間</td>
+              </tr>
+            </thead>
+            <% current_user.events.each do |event| %>
+              <tboby>
+                <tr>
+                  <td><%= event.date %></td>
+                  <td><%= link_to event.name, group_event_path(event) %></td>
+                  <td><%= event.start_time %></td>
+                </tr>
+              </tboby>
+            <% end %>
           </table>
           <%= link_to "グループを作る", new_group_path, class: 'btn btn-light' %>
         </div>

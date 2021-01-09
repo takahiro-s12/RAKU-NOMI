@@ -7,7 +7,24 @@
   </div>
   <div>
     <p>今後の飲み会予定</p>
-    <table></table>
+    <table>
+      <thead>
+        <tr>
+          <td>日程</td>
+          <td>飲み会名</td>
+          <td>開始時間</td>
+          <td>終了時間</td>
+        </tr>
+      </thead>
+      <% @events.each do |event| %>
+        <tbody>
+          <td><%= event.date %></td>
+          <td><%= link_to event.name, group_event_path(@group, event.id) %></td>
+          <td><%= event.start_time %></td>
+          <td><%= event.finish_time %></td>
+        </tbody>
+      <% end %>
+    </table>
   </div>
   <div>
     <p>メンバー</p>
