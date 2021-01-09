@@ -4,8 +4,8 @@ class GroupUsersController < ApplicationController
     @group_user = GroupUser.new(group_user_params)
     if @group_user.save
       group = Group.find(params[:group_id])
-      group.create_notification_by(current_user)
-      redirect_to edit_group_path(@group)
+      group.create_notification_add_user!(current_user)
+      redirect_to edit_group_path(group)
     else
       render 'groups/edit'
     end

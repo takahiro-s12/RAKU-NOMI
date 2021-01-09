@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @groups = current_user.groups
+    @events = current_user.events
   end
 
   def edit

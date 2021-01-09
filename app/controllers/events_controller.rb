@@ -6,12 +6,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(event_params)
+    @event = Event.new(event_params)
     @group = Group.find(params[:group_id])
     @event.group_id = @group.id
     @event.user_id = current_user.id
     @users = @group.users
     if @event.save
+      @event.create_notification_new_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)
     else
       render new_group_event_path(@group)
@@ -31,6 +32,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @group = Group.find(params[:group_id])
     if @event.update(event_params)
+      @event.create_notification_edit_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)
     else
       render  edit_group_event_path(@group,@event)
