@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   end
   resources :notifications, only: [:index]
   delete "/notifications/destroy_all" => "notifications#destroy_all"
-  
 end

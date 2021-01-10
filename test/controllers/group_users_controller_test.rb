@@ -10,5 +10,4 @@ class GroupUsersControllerTest < ActionDispatch::IntegrationTest
     get group_users_destroy_url
     assert_response :success
   end
-
 end

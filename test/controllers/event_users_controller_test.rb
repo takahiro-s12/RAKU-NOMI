@@ -10,5 +10,4 @@ class EventUsersControllerTest < ActionDispatch::IntegrationTest
     get event_users_destroy_url
     assert_response :success
   end
-
 end

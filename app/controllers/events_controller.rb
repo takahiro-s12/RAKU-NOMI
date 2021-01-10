@@ -35,7 +35,7 @@ class EventsController < ApplicationController
       @event.create_notification_edit_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)
     else
-      render  edit_group_event_path(@group,@event)
+      render edit_group_event_path(@group, @event)
     end
   end
 
@@ -48,6 +48,14 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:user_id, :name, :venue_name, :venue_address, :date, :start_time, :finish_time, :cost, :site_url, :comment, user_ids: [])
+    params.require(:event).permit(:user_id,
+                                  :name,
+                                  :venue_name,
+                                  :venue_address,
+                                  :date, :start_time,
+                                  :finish_time, :cost,
+                                  :site_url,
+                                  :comment,
+                                  user_ids: [])
   end
 end

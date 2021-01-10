@@ -5,7 +5,7 @@ class EventUsersController < ApplicationController
     @group = Group.find(params[:group_id])
     if @event_user.save
       @event.create_notification_add_event_user!(current_user)
-      redirect_to group_add_user_event_path(@group,@event)
+      redirect_to group_add_user_event_path(@group, @event)
     else
       render 'events/add_user'
     end

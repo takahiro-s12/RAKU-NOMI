@@ -21,28 +21,33 @@ class User < ApplicationRecord
   generate_public_uid
   attachment :image
 
-  #public_uidが該当するユーザーを検索
+  # public_uidが該当するユーザーを検索
   def self.search_for(content)
-      User.where(public_uid: content)
+    User.where(public_uid: content)
   end
 
-  #ユーザーをフォロー
+  # ユーザーをフォロー
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
 
-  #フォローを外す
+  # フォローを外す
   def unfollow(user_id)
     follower.find_by(followed_id: user_id).destroy
   end
 
-  #フォローの確認
+  # フォローの確認
   def following?(user)
     following_user.include?(user)
   end
-  
+
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    temp = Notification.where([
+      "visiter_id = ? and visited_id = ? and action = ?",
+      current_user.id,
+      id,
+      'follow',
+    ])
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,

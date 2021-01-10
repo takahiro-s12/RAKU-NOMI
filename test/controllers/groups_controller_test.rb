@@ -25,5 +25,4 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
     get groups_update_url
     assert_response :success
   end
-
 end
