@@ -1,0 +1,21 @@
+
+[1mFrom:[0m /home/ec2-user/environment/RAKU_NOMI/app/models/group.rb:9 Group#create_notification_add_user!:
+
+     [1;34m7[0m: [32mdef[0m [1;34mcreate_notification_add_user![0m(current_user)
+     [1;34m8[0m:   binding.pry
+ =>  [1;34m9[0m:   temp = [1;34;4mNotification[0m.where([[31m[1;31m"[0m[31mvisiter_id = ? and visited_id = ? and group_id =? and action = ?[1;31m"[0m[31m[0m, current_user.id, user_id, id, [31m[1;31m'[0m[31madd_group[1;31m'[0m[31m[0m])
+    [1;34m10[0m:   [32mif[0m temp.blank?
+    [1;34m11[0m:     notification = current_user.active_notifications.new(
+    [1;34m12[0m:       [35mgroup_id[0m: id,
+    [1;34m13[0m:       [35mvisited_id[0m: user_id,
+    [1;34m14[0m:       [35maction[0m: [31m[1;31m"[0m[31madd_group[1;31m"[0m[31m[0m
+    [1;34m15[0m:     )
+    [1;34m16[0m: 
+    [1;34m17[0m:     [32mif[0m notification.visiter_id == notification.visited_id
+    [1;34m18[0m:       notification.checked = [1;36mtrue[0m
+    [1;34m19[0m:     [32mend[0m
+    [1;34m20[0m: 
+    [1;34m21[0m:     notification.save [32mif[0m notification.valid?
+    [1;34m22[0m:   [32mend[0m
+    [1;34m23[0m: [32mend[0m
+

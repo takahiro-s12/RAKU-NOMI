@@ -1,0 +1,45 @@
+<div class="main-body">
+  <h2><%= @event.name %></h2>
+  <div>
+    <table class="table table-borderless">
+      <tr>
+        <td>日にち</td>
+        <td><%= @event.date %></td>
+      </tr>
+      <tr>
+        <td>時間</td>
+        <td><%= @event.start_time %> 〜 <%= @event.finish_time %></td>
+      </tr>
+      <tr>
+        <td>会場</td>
+        <td><%= @event.venue_name %></td>
+      </tr>
+      <tr>
+        <td>会場住所</td>
+        <td><%= @event.venue_address %></td>
+      </tr>
+      <tr>
+        <td>サイトURL</td>
+        <td><%= @event.site_url %></td>
+      </tr>
+      <% if user_signed_in? && @event.user_id == current_user.id %>
+      <tr>
+        <td>費用</td>
+        <td><%= @event.cost %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <% if user_signed_in? && @event.user_id == current_user.id %>
+    <div>
+      <%= link_to "編集", edit_group_event_path(@group,@event), class: 'btn btn-light' %>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "メンバー追加", group_add_user_event_path(@group,@event), class: 'btn btn-light' %>
+  </div>
+  <div>
+    <p>備考</p>
+    <%= @event.comment %>
+  </div>
+</div>

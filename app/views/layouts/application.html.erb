@@ -13,9 +13,18 @@
     <% if user_signed_in? %>
       <header>
         <div class="header-content">
-          <%= link_to image_tag("img_logo.png", class: "logo"), root_path %>
+          <%= link_to image_tag("img_logo.png", class: "logo"), user_path(current_user) %>
+          <%= form_with url: users_search_path, method: :get, local: true do |f| %>
+            <%= f.text_field :content %>
+            <%= f.submit "検索" %>
+          <% end %>
           <ul>
-            <li><%= link_to 'RAKU NOMIの使い方', home_about_path %></li>
+            <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'nav' %></li>
+            <!--% if unchecked_notifications.any? %-->
+              <!--i class="fa fa-circle" style="color: red;"></i-->
+            <!--% end %-->
+            <li><%= link_to "通知", notifications_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav' %>
           </ul>
         </div>
       </header>
@@ -33,5 +42,9 @@
     <main>
       <%= yield %>
     </main>
+    <footer>
+      <p>sample</p>
+    </footer>
   </body>
+
 </html>

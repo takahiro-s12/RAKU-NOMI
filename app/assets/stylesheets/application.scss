@@ -24,6 +24,14 @@
   box-sizing: border-box;
  }
 
+ html {
+  width: 100%;
+ }
+
+ body {
+  width: 100%;
+ }
+
  header {
   width: 100%;
   height: 80px;
@@ -47,5 +55,20 @@
   }
   ul {
    list-style: none;
+   display: flex;
   }
  }
+
+ .nav {
+  padding-left: 30px;
+ }
+
+ main {
+  width: 100%;
+  height: 80%;
+ }
+
+footer {
+ text-align: center;
+}
+
