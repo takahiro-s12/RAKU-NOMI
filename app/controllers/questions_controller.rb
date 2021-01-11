@@ -20,6 +20,14 @@ class QuestionsController < ApplicationController
     @questions = Question.where(group_id: @group.id)
   end
 
+  def show
+    @question = Question.find(params[:id])
+    @answers = Answer.where(question_id: @question.id)
+    @answers1 = Answer.where(question_id: @question.id, first_candidate: "true")
+    @answers2 = @answers.where(second_candidate: 'true')
+    @answers3 = @answers.where(final_candidate: 'true')
+  end
+
   private
 
   def question_params

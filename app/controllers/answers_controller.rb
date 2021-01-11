@@ -16,13 +16,10 @@ class AnswersController < ApplicationController
     @answer.status = 'true'
     @answer.user_id = current_user.id
     if @answer.save(answer_params)
-      redirect_to group_path(@group)
+      redirect_to group_question_path(@group, @question)
     else
       render new_group_question_answer_path(@group, @question)
     end
-  end
-
-  def show
   end
 
   private
