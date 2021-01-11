@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_id: 1
+  first_candidate: 2021-01-11
+  second_candidate: 2021-01-11
+  final_candidate: 2021-01-11
+
+two:
+  group_id: 1
+  first_candidate: 2021-01-11
+  second_candidate: 2021-01-11
+  final_candidate: 2021-01-11

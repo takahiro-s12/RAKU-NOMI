@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_024055) do
+ActiveRecord::Schema.define(version: 2021_01_11_084139) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.boolean "first_candidate", default: false
+    t.boolean "second_candidate", default: false
+    t.boolean "final_candidate", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "question_id"
+    t.boolean "status", default: false
+  end
 
   create_table "event_users", force: :cascade do |t|
     t.integer "event_id"
@@ -59,6 +71,15 @@ ActiveRecord::Schema.define(version: 2021_01_09_024055) do
     t.integer "event_id"
     t.string "action"
     t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "group_id"
+    t.date "first_candidate"
+    t.date "second_candidate"
+    t.date "final_candidate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,27 @@
+<div class="main-body">
+  <h2>アンケート回答</h2>
+  <%= form_with model: @answer, url: group_question_answers_path(@group, @question), method: :post, local: true do |f| %>
+    <table class="table">
+      <tr>
+        <td><%= f.label "候補日1" %></td>
+        <td><%= f.label @question.first_candidate %></td>
+        <td><%= f.check_box :first_candidate, {}, true, false %></td>
+      </tr>
+      <% if @question.second_candidate.present? %>
+        <tr>
+          <td><%= f.label "候補日2" %></td>
+          <td><%= f.label @question.second_candidate %></td>
+          <td><%= f.check_box :second_candidate, {}, true, false %></td>
+        </tr>
+      <% end %>
+      <% if @question.final_candidate.present? %>
+        <tr>
+          <td><%= f.label "候補日3" %></td>
+          <td><%= f.label @question.final_candidate %></td>
+          <td><%= f.check_box :final_candidate, {}, true, false %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= f.submit "回答" %>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<div class="main-body">
+  <h2>アンケート作成</h2>
+  <%= form_with model: @question, url: "/groups/#{@group.id}/questions", method: :post, local: true do |f| %>
+    <table class="table">
+      <tr>
+        <td><%= f.label "候補日1" %></td>
+        <td><%= f.text_field :first_candidate %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "候補日2" %></td>
+        <td><%= f.text_field :second_candidate %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "候補日3" %></td>
+        <td><%= f.text_field :final_candidate %></td>
+      </tr>
+    </table>
+    <%= f.submit "作成" %>
+  <% end %>
+</div>

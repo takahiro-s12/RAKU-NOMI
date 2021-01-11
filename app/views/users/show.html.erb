@@ -43,6 +43,7 @@
             <thead>
               <tr>
                 <td>日程</td>
+                <td>グループ名</td>
                 <td>飲み会名</td>
                 <td>開始時間</td>
               </tr>
@@ -51,6 +52,7 @@
               <tboby>
                 <tr>
                   <td><%= event.date %></td>
+                  <td><%= event.group.name %></td>
                   <td><%= link_to event.name, group_event_path(event.group_id, event) %></td>
                   <td><%= event.start_time %></td>
                 </tr>

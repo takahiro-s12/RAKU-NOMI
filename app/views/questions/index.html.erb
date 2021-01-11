@@ -1,0 +1,19 @@
+<div class="main-body">
+  <h2>アンケート一覧</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>質問開始日</th>
+          <th><!--title追加予定--></th>
+        </tr>
+      </thead>
+      <% @questions.each do |question| %>
+        <tbody>
+          <tr>
+            <td><%= question.created_at.strftime('%m月%d日') %></td>
+            <td><%= link_to "アンケート", new_group_question_answer_path(question.group_id, question.id) %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+</div>
