@@ -8,10 +8,11 @@
         </tr>
       </thead>
       <% @questions.each do |question| %>
+        <% @answer = Answer.find_by(user_id: current_user.id, question_id: question.id) %>
         <tbody>
           <tr>
             <td><%= question.created_at.strftime('%m月%d日') %></td>
-            <td><%= link_to "アンケート", new_group_question_answer_path(question.group_id, question.id) %></td>
+            <td><%= link_to "アンケート", edit_group_question_answer_path(question.group_id, question.id, @answer) %></td>
           </tr>
         </tbody>
       <% end %>

@@ -2,12 +2,15 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     @group = Group.find(params[:group_id])
+    @users = @group.users
   end
 
   def create
     @question = Question.new(question_params)
     @group = Group.find(params[:group_id])
     @question.group_id = @group.id
+    @users = @group.users
+    @question.user_ids = @users.ids
     if @question.save
       redirect_to group_path(@group)
     else
@@ -34,6 +37,7 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:first_candidate,
                                      :second_candidate,
                                      :final_candidate,
+                                     user_ids: []
                                     )
   end
 

@@ -1,5 +1,0 @@
-class AddStatusToAnswers < ActiveRecord::Migration[5.2]
-  def change
-    add_column :answers, :status, :boolean, default: false
-  end
-end

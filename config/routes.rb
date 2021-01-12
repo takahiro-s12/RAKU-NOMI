@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :show, :edit, :update] do
     resources :group_users, only: [:create, :destroy]
     resources :questions, only: [:new, :create, :index, :show] do
-      resources :answers,only: [:new, :create]
+      resources :answers,only: [:edit, :update]
     end
     get "/events/:id/add_user" => "events#add_user", as: 'add_user_event'
     resources :events, only: [:new, :create, :show, :edit, :update] do

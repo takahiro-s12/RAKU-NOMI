@@ -1,6 +1,6 @@
 <div class="main-body">
   <h2>アンケート回答</h2>
-  <%= form_with model: @answer, url: group_question_answers_path(@group, @question), method: :post, local: true do |f| %>
+  <%= form_with model: @answer, url: group_question_answer_path(@group, @question,@answer), method: :patch, local: true do |f| %>
     <table class="table">
       <tr>
         <td><%= f.label "候補日1" %></td>

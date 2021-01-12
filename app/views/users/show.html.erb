@@ -1,8 +1,8 @@
 <div class="main-body">
   <h2>マイページ</h2>
-  <!--% if current_user.answer.status == false %-->
-    <!--P>未回答のアンケートが<!--%= @answer %>件あります</P-->
-  <!--% end %-->
+  <% if @answers.present? %>
+    <P>未回答のアンケートが<%= @answers.count %>件あります</p>
+  <% end %>
   <div class="container">
     <div class="row">
       <div class="col-lg-5">

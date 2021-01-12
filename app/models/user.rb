@@ -17,7 +17,8 @@ class User < ApplicationRecord
   has_many :events, through: :event_users
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
-  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  has_many :usesrs, through: :answers
 
   generate_public_uid
   attachment :image

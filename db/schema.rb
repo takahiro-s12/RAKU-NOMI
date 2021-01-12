@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_084139) do
+ActiveRecord::Schema.define(version: 2021_01_12_043201) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "group_id"
+    t.integer "question_id"
     t.boolean "first_candidate", default: false
     t.boolean "second_candidate", default: false
     t.boolean "final_candidate", default: false
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "question_id"
-    t.boolean "status", default: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "event_users", force: :cascade do |t|

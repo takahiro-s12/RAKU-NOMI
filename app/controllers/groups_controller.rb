@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = current_user.groups.build(group_params)
+    @group = Group.new(group_params)
     @group.users << current_user
     @users = current_user.following_user & current_user.follower_user
     if @group.save
