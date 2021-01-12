@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
     @answers1 = Answer.where(question_id: @question.id, first_candidate: "true")
     @answers2 = @answers.where(second_candidate: 'true')
     @answers3 = @answers.where(final_candidate: 'true')
+    @done_answers = Answer.where(question_id: @question, status: true)
   end
 
   private

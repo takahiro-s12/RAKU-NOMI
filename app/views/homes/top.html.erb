@@ -5,11 +5,11 @@
       <div class="top-button"><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-default btn-lg' %></div>
       <div class="top-button"><%= link_to "ログイン", new_user_session_path, class: 'btn btn-default btn-lg' %></div>
     </div>
-    <!--%= image_tag("main_img.jpg", class: "main-image") %-->
+    <%= image_tag("main_img.jpg", class: "main-image") %>
   </div>
 </div>
 <div class="explanation-title">
-  <h1>RAKU NOMIとは？</h1>
+  <h1 class="title"><span>RAKU NOMIとは？</span></h1>
   <p>
     RAKU NOMIとは飲み会をラク(楽)に！楽しく！開催することを可能にした、<br>
     飲み会専用のコミュニケーションサイトです！<br>
@@ -17,15 +17,15 @@
   </p>
 </div>
 <div class="explanation-body">
-  <h2 class="left-explanation">みんないつ空いているのか分からない、、、</h2>
-  <h2 class="right-explanation">メンバーに連絡するのも面倒、、、</h2>
-  <h2 class="left-explanation">誰から集金したかも覚えなきゃ、、、</h2>
-  <h2 class="right-explanation">当日の席極めもしなきゃいけないし、、、</h2>
+  <h2 class="left-explanation">みんな<span class="color-red">いつ</span>空いているのか分からない、、、</h2>
+  <h2 class="right-explanation">メンバーに<span class="color-red">連絡</span>するのも面倒、、、</h2>
+  <h2 class="left-explanation"><span class="color-red">やること</span>も多いし、、、</h2>
+  <h2 class="right-explanation">でも他に幹事やる人<span class="color-red">いない</span>し、、、</h2>
 </div>
 <div class="explanation-finish">
   <h1>
     などの飲み会を開く際の悩みを<br>
-    このRAKUNOMIが解決します！！
+    この<span class="color-orange">RAKUNOMI</span>が解決します！！
   </h1>
 </div>
 <div class="bottom-btn">

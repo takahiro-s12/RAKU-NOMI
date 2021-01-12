@@ -21,4 +21,41 @@
       </tr>
     <% end %>
   </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>候補日1</th>
+        <th>候補日2</th>
+        <th>候補日3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @done_answers.each do |answer| %>
+        <tr>
+          <td><%= answer.user.nickname %></td>
+          <% if answer.first_candidate == true %>
+            <td>◯</td>
+          <% else %>
+            <td>×</td>
+          <% end %>
+          <% if answer.second_candidate == true %>
+            <td>◯</td>
+          <% else %>
+            <td>×</td>
+          <% end %>
+          <% if answer.final_candidate == true %>
+            <td>◯</td>
+          <% else %>
+            <td>×</td>
+          <% end %>
+          <% if answer.user_id == current_user.id %>
+            <td><%= link_to "変更する", edit_group_question_answer_path(@question.group_id, @question, answer) %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

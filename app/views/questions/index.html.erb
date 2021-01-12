@@ -12,7 +12,11 @@
         <tbody>
           <tr>
             <td><%= question.created_at.strftime('%m月%d日') %></td>
-            <td><%= link_to "アンケート", edit_group_question_answer_path(question.group_id, question.id, @answer) %></td>
+            <% if @answer.status == false %>
+              <td><%= link_to "アンケート", edit_group_question_answer_path(question.group_id, question.id, @answer) %></td>
+            <% else %>
+              <td><%= link_to "アンケート", group_question_path(question.group_id, question.id) %></td>
+            <% end %>
           </tr>
         </tbody>
       <% end %>
