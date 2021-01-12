@@ -4,6 +4,8 @@
   <!---飲み会追加、アンケートのリンク実装予定-->
     <%= link_to "編集する", edit_group_path(@group), class: 'btn btn-light' %>
     <%= link_to "飲み会を開く", new_group_event_path(@group), class: 'btn btn-light' %>
+    <%= link_to "アンケート作成", new_group_question_path(@group), class: 'btn btn-light' %>
+    <%= link_to "アンケート一覧", group_questions_path(@group) %>
   </div>
   <div>
     <p>今後の飲み会予定</p>

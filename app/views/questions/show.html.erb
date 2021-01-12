@@ -1,0 +1,24 @@
+<div class="main-body">
+  <h2>アンケート結果</h2>
+  <table class="table">
+    <tr>
+      <td>候補日1</td>
+      <td><%= @question.first_candidate %></td>
+      <td><%= @answers1.count %>人</td>
+    </tr>
+    <% if @question.second_candidate.present? %>
+      <tr>
+        <td>候補日2</td>
+        <td><%= @question.second_candidate %></td>
+        <td><%= @answers2.count %>人</td>
+      </tr>
+    <% end %>
+    <% if @question.final_candidate.present? %>
+      <tr>
+        <td>候補日3</td>
+        <td><%= @question.final_candidate %></td>
+        <td><%= @answers3.count %>人</td>
+      </tr>
+    <% end %>
+  </table>
+</div>

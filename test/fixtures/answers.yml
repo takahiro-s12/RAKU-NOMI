@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  question: one
+  first_candidate: false
+  scond_candidate: false
+  final_candidate: false
+  status: false
+
+two:
+  user: two
+  question: two
+  first_candidate: false
+  scond_candidate: false
+  final_candidate: false
+  status: false

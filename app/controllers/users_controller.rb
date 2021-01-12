@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @groups = current_user.groups
     @events = current_user.events
+    @answers = Answer.where(user_id: current_user.id, status: false)
   end
 
   def edit
