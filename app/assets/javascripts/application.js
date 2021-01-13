@@ -17,3 +17,17 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+/* global $*/
+
+$(function(){
+  $(window).on('load scroll',function(){
+    $('.animation').each(function(){
+      var target = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var height = $(window).height();
+      if (scroll > target - height){
+        $(this).addClass('active');
+      }
+    });
+  });
+});
