@@ -4,7 +4,8 @@
     <title>RAKUNomi</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,17 +15,19 @@
       <header>
         <div class="header-content">
           <%= link_to image_tag("img_logo.png", class: "logo"), user_path(current_user) %>
-          <%= form_with url: users_search_path, method: :get, local: true do |f| %>
-            <%= f.text_field :content %>
-            <%= f.submit "検索" %>
+          <%= form_with url: users_search_path, method: :get, local: true, class: 'search-form' do |f| %>
+            <%= f.text_field :content, :placeholder => "-IDを入力してください-" %>
+            <%= f.button type: 'submit', class: "search-submit" do %>
+              <i class="fas fa-search"></i>
+            <% end %>
           <% end %>
           <ul>
-            <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'nav' %></li>
+            <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'btn btn-nav' %></li>
             <% if unchecked_notifications.any? %>
               <i class="fa fa-circle" style="color: red;"></i>
             <% end %>
-            <li><%= link_to "通知", notifications_path, class: 'nav' %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav' %></li>
+            <li><%= link_to "通知", notifications_path, class: 'btn btn-nav' %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-nav' %></li>
           </ul>
         </div>
       </header>
