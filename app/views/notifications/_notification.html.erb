@@ -1,7 +1,8 @@
 <% visiter = notification.visiter %>
-
-<div class="user-view clearfix pb-3">
-  <%= attachment_image_tag visiter, :image, :fill, 100, 100, fallback: "no-image.png", id: "notification-image" %>
-  <%= notification_form(notification) %>
+<div class="container">
+<div class="user-view clearfix pb-3 row">
+  <span class="col-1 offset-4"><%= attachment_image_tag visiter, :image, :fill, 60, 60, fallback: "no-image.png", id: "member-image" %></span>
+  <span class="align-middle"><%= notification_form(notification) %></span>
   <span class="moderate-font"><%= "( #{time_ago_in_words(notification.created_at)} 前)" %></span>
 </div>
+</div

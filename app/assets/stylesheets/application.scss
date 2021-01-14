@@ -149,3 +149,13 @@ footer {
 .group-color {
  background-color: #FFA500;
 }
+
+.nav-ul {
+ position: relative;
+}
+
+.nav-ul .notification-icon {
+ position: absolute;
+ top: 19px;
+ right: 165px;
+}

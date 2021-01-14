@@ -22,8 +22,13 @@
           <tbody>
             <td><%= event.date %></td>
             <td><%= link_to event.name, group_event_path(@group, event.id) %></td>
-            <td><%= event.start_time %></td>
-            <td><%= event.finish_time %></td>
+            <% if event.start_time.present? & event.finish_time.present? %>
+              <td><%= event.start_time.strftime('%H:%M') %></td>
+              <td><%= event.finish_time.strftime('%H:%M') %></td>
+            <% else %>
+              <td></td>
+              <td></td>
+            <% end %>
           </tbody>
         <% end %>
       </table>
