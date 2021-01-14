@@ -1,53 +1,57 @@
 <div class="main-body">
-  <h2><%= @group.name %></h2>
-  <div>
-  <!---飲み会追加、アンケートのリンク実装予定-->
-    <%= link_to "編集する", edit_group_path(@group), class: 'btn btn-light' %>
-    <%= link_to "飲み会を開く", new_group_event_path(@group), class: 'btn btn-light' %>
-    <%= link_to "アンケート作成", new_group_question_path(@group), class: 'btn btn-light' %>
-    <%= link_to "アンケート一覧", group_questions_path(@group) %>
+  <h2 class="page-title"><%= @group.name %></h2>
+  <div class="text-center mt-5 mb-5">
+    <%= link_to "編集する", edit_group_path(@group), class: 'btn btn-content' %>
+    <%= link_to "飲み会を開く", new_group_event_path(@group), class: 'btn btn-content' %>
+    <%= link_to "アンケート作成", new_group_question_path(@group), class: 'btn btn-content' %>
+    <%= link_to "アンケート一覧", group_questions_path(@group), class: 'btn btn-content' %>
   </div>
-  <div>
+  <div class="text-center">
     <p>今後の飲み会予定</p>
-    <table>
-      <thead>
-        <tr>
-          <td>日程</td>
-          <td>飲み会名</td>
-          <td>開始時間</td>
-          <td>終了時間</td>
-        </tr>
-      </thead>
-      <% @events.each do |event| %>
-        <tbody>
-          <td><%= event.date %></td>
-          <td><%= link_to event.name, group_event_path(@group, event.id) %></td>
-          <td><%= event.start_time %></td>
-          <td><%= event.finish_time %></td>
-        </tbody>
-      <% end %>
-    </table>
+    <div class='mx-auto bg-white' style='width: 50%; height: 25rem;'>
+      <table class='table' style='width: 100%;'>
+        <thead class="thead-light">
+          <tr>
+            <th style='width: 25%;'>日程</th>
+            <th style='width: 25%;'>飲み会名</th>
+            <th style='width: 25%;'>開始時間</th>
+            <th style='width: 25%;'>終了時間</th>
+          </tr>
+        </thead>
+        <% @events.each do |event| %>
+          <tbody>
+            <td><%= event.date %></td>
+            <td><%= link_to event.name, group_event_path(@group, event.id) %></td>
+            <td><%= event.start_time %></td>
+            <td><%= event.finish_time %></td>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
-  <div>
+  <div class="mt-5 mb-5 text-center">
     <p>メンバー</p>
-    <table>
-      <thead>
-        <td></td>
-        <td>ニックネーム</td>
-        <td>好きな食べ物</td>
-        <td>好きな飲み物</td>
-        <td>嫌いな食べ物</td>
-      </thead>
-      <% @group.users.each do |user| %>
-      <tbody>
-        <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.favorite_food %></td>
-        <td><%= user.favorite_drink %></td>
-        <td><%= user.hated_food %></td>
-        <td><%= link_to "退会する", group_group_user_path(@group, group_user: { group_id: @group.id, user_id: user.id } ), method: :delete %></td>
-      </tbody>
-      <% end %>
-    </table>
+    <div class="mx-auto bg-white" style="width: 70%;">
+      <table class='table' style='width: 100%;'>
+        <thead class="thead-light">
+          <th style="width: 10%;"></th>
+          <th>ニックネーム</th>
+          <th>好きな食べ物</th>
+          <th>好きな飲み物</th>
+          <th>嫌いな食べ物</th>
+          <th style="width: 15%"></th>
+        </thead>
+        <% @group.users.each do |user| %>
+        <tbody>
+          <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+          <td class="align-middle"><%= user.nickname %></td>
+          <td class="align-middle"><%= user.favorite_food %></td>
+          <td class="align-middle"><%= user.favorite_drink %></td>
+          <td class="align-middle"><%= user.hated_food %></td>
+          <td class="align-middle"><%= link_to "退会する", group_group_user_path(@group, group_user: { group_id: @group.id, user_id: user.id } ), method: :delete %></td>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>

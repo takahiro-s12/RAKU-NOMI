@@ -1,11 +1,9 @@
 <div class="main-body">
   <div class="main-visual">
     <div class="main-text">
-      <div class="content">
-        <h1 class="top-text">WELCOME<br>TO<br>RAKU NOMI!</h1>
-        <div class="top-button"><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-top btn-nav' %></div>
-        <div class="top-button"><%= link_to "ログイン", new_user_session_path, class: 'btn btn-top btn-nav' %></div>
-      </div>
+      <h1 class="top-text">WELCOME<br>TO<br>RAKU NOMI!</h1>
+      <div class="top-button-new"><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-top btn-nav' %></div>
+      <div class="top-button-log"><%= link_to "ログイン", new_user_session_path, class: 'btn btn-top btn-nav' %></div>
     </div>
     <%= image_tag("main_img.jpg", class: "main-image") %>
   </div>
@@ -14,7 +12,7 @@
 <div class="explanation-title">
   <h1 class="title animation"><span>RAKU NOMIとは？</span></h1>
   <p class="animation">
-    RAKU NOMIとは飲み会をラク(楽)に！楽しく！開催することを可能にした、<br>
+    RAKU NOMIとは飲み会を<span class="color-red">ラク(楽)</span>に！<span class="color-red">楽しく</span>！開催することを可能にした、<br>
     飲み会専用のコミュニケーションサイトです！<br>
     会社や大学の飲み会はもちろん個人的な飲み会を開きたい方など様々な方にご利用いただけます！
   </p>

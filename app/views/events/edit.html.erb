@@ -1,5 +1,5 @@
 <div class="main-body">
-  <h2>飲み会編集</h2>
+  <h2 class="page-title">飲み会編集</h2>
   <%= form_with model: @event, url: "/groups/#{@event.group_id}/events/#{@event.id}", method: :patch, local: true do |f| %>
     <div>
       <table class="table table-borderless">
@@ -9,13 +9,13 @@
         </tr>
         <tr>
           <td><%= f.label "日にち" %></td>
-          <td><%= f.date_select :date %></td>
+          <td><%= f.date_field :date %></td>
         </tr>
         <tr>
           <td><%= f.label "時間" %></td>
-          <td><%= f.time_select :start_time %></td>
+          <td><%= f.time_field :start_time %></td>
           <td>〜</td>
-          <td><%= f.time_select :finish_time %></td>
+          <td><%= f.time_field :finish_time %></td>
         </tr>
         <tr>
           <td><%= f.label "会場" %></td>

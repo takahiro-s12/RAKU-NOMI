@@ -5,45 +5,80 @@
   padding-top: 80px;
   width: 100%;
   background: linear-gradient(#FFCD28,#FFA500);
+  min-height: 97vh;
+  border-bottom: solid 1px #000000;
+  .main-visual {
+   display: flex;
+   position: relative;
+   width: 90%;
+   margin: 0 auto;
+  }
  }
 
- .main-visual {
-  display: flex;
-  position: relative;
-  width: 88%;
-  margin: 0 auto;
+ .main-text:before {
+  display: block;
+  content: '';
+  padding-top: 100%;
  }
 
  .main-text {
-  width: 50%;
-  margin: 6% 0;
-  background-color: #FFFFFF;
-  text-align: center;
+  width: 49%;
+  margin: 3% 0;
+  background: #FFFFFF;
   border-radius: 30px;
   border: solid 2px #000000;
-  .top-text {
-   padding: 10% 0 5% 0;
-   font-size: 4em;
-   color: #FFA500;
-  }
-  .top-button {
-   .btn-top {
-    width: 150px;
-    height: 60px;
-    font-size: 20px;
-    border: solid 1px #000000;
-    border-radius: 10px;
-    margin-bottom: 10%;
-    line-height: 45px;
-   }
-  }
+  position: relative;
+  text-align: center;
+ }
+
+ .top-text {
+  position: absolute;
+  top: 12%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  font-size: 5vw;
+  color: #FFA500;
+ }
+
+ .top-button-new {
+  position: absolute;
+  top: 60%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+ }
+
+ .top-button-log {
+  position: absolute;
+  top: 75%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+ }
+
+ .top-button-new .btn-top {
+  width: 40%;
+  height: 60px;
+  font-size: 2vw;
+  line-height: 45px;
+ }
+
+ .top-button-log .btn-top {
+  width: 40%;
+  height: 60px;
+  font-size: 2vw;
+  line-height: 45px;
  }
 
  .main-image {
-  width: 55%;
   position: absolute;
+  top: 0;
+  bottom: 0;
   right: 0;
-  top: 18%;
+  margin: auto 0;
+  width: 55%;
+  object-fit: contain;
   border: solid 1px #000000;
  }
 
