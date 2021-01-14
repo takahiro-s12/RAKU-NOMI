@@ -115,6 +115,12 @@
   box-shadow: -4px -4px 0 #000;;
  }
 
+ .btn-event {
+  width: 13rem;
+  height: 4rem;
+  font-size: 1.8rem;
+ }
+
  .actions .btn-new {
   width: 15%;
   height: 60px;
@@ -134,6 +140,10 @@ footer {
 
 .main-body .page-title {
  background-color: #FFA500;
+ padding-top: 1.5rem;
+ padding-bottom: 1.5rem;
+ text-align: center;
+ border-bottom: solid 0.0625rem #000000;
 }
 
 .group-color {

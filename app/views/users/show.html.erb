@@ -1,5 +1,5 @@
 <div class="main-body">
-  <h2 class="text-center pt-4 pb-4 border-bottom border-dark page-title">マイページ</h2>
+  <h2 class="page-title">マイページ</h2>
   <% if @answers.present? %>
     <P class="color-red text-center pb-2 mb-4">未回答のアンケートが<%= @answers.count %>件あります</p>
   <% end %>
@@ -59,14 +59,18 @@
                     <td class="text-center"><%= event.date %></td>
                     <td class="text-center"><%= event.group.name %></td>
                     <td class="text-center"><%= link_to event.name, group_event_path(event.group_id, event) %></td>
-                    <td class="text-center"><%= event.start_time %></td>
+                    <% if event.start_time.present? %>
+                      <td class="text-center"><%= event.start_time.strftime('%H:%M') %></td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
                   </tr>
                 </tboby>
               <% end %>
             </table>
           </div>
           <div class="text-center">
-            <%= link_to "グループを作る", new_group_path, class: 'btn btn-content mt-3  mb-sm-2' %>
+            <%= link_to "グループを作る", new_group_path, class: 'btn btn-content mt-3  mb-sm-4' %>
           </div>
       </div>
     </div>
