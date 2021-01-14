@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @questions = Question.where(group_id: @group.id)
+    @questions = Question.where(group_id: @group.id).order("created_at DESC")
   end
 
   def show
