@@ -1,4 +1,7 @@
-<h2 class="page-title">メンバー追加</h2>
+<div class="page-title">
+    <%= link_to event.name + "ページに戻る", group_event_path(event.group, event), class: 'page-back btn btn-content' %>
+    <h2 class="mb-0">メンバー追加</h2>
+  </div>
 <% group.users.each do |user| %>
   <% if event.users.find_by(id: user.id).blank? %>
     <div class="mt-5 mx-auto" style="width: 60%;">

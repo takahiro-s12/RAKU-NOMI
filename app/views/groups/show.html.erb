@@ -6,33 +6,8 @@
     <%= link_to "アンケート作成", new_group_question_path(@group), class: 'btn btn-content' %>
     <%= link_to "アンケート一覧", group_questions_path(@group), class: 'btn btn-content' %>
   </div>
-  <div class="text-center">
-    <p>今後の飲み会予定</p>
-    <div class='mx-auto bg-white' style='width: 50%; height: 25rem;'>
-      <table class='table' style='width: 100%;'>
-        <thead class="thead-light">
-          <tr>
-            <th style='width: 25%;'>日程</th>
-            <th style='width: 25%;'>飲み会名</th>
-            <th style='width: 25%;'>開始時間</th>
-            <th style='width: 25%;'>終了時間</th>
-          </tr>
-        </thead>
-        <% @events.each do |event| %>
-          <tbody>
-            <td><%= event.date %></td>
-            <td><%= link_to event.name, group_event_path(@group, event.id) %></td>
-            <% if event.start_time.present? & event.finish_time.present? %>
-              <td><%= event.start_time.strftime('%H:%M') %></td>
-              <td><%= event.finish_time.strftime('%H:%M') %></td>
-            <% else %>
-              <td></td>
-              <td></td>
-            <% end %>
-          </tbody>
-        <% end %>
-      </table>
-    </div>
+  <div class="text-center" id="event_index">
+    <%= render 'groups/event', group: @group, events: @events %>
   </div>
   <div class="mt-5 mb-5 text-center" id="destroy_group_user">
     <%= render 'groups/destroy_user', group: @group, group_user: @group_user %>

@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
     @users = @group.users
     @question.user_ids = @users.ids
     if @question.save
+      @question.create_notification_question!(current_user)
       redirect_to group_path(@group)
     else
       render new_group_question_path(@group)

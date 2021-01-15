@@ -1,5 +1,8 @@
 <div class="main-body">
-  <h2 class="page-title">アンケート作成</h2>
+  <div class="page-title">
+    <%= link_to @group.name + "ページに戻る", group_path(@group), class: 'page-back btn btn-content' %>
+    <h2 class="mb-0">アンケート作成</h2>
+  </div>
   <div class="mt-5 text-center">
     <%= form_with model: @question, url: "/groups/#{@group.id}/questions", method: :post, local: true do |f| %>
       <div style="width:50%;" class="mx-auto">
