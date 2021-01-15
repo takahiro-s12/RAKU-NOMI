@@ -14,6 +14,8 @@ module NotificationsHelper
       tag.a(notification.visiter.nickname) + "があなたを" + tag.a('飲み会', href: group_event_path(notification.group_id, notification.event_id), style: "font-weight: :bold;") + "に招待しました"
     when "edit_event"
       tag.a('飲み会情報', href: group_event_path(notification.group_id, notification.event_id), style: "font-weight: :bold;") + "が更新されました"
+    when "new_question"
+      tag.a(notification.visiter.nickname) + "から" + tag.a('アンケート', href: group_path(notification.group_id), style: "font-weight: :bold") + "が届いています"
     end
   end
 
