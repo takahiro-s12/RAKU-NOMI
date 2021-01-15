@@ -1,0 +1,13 @@
+<h2 class="page-title">メンバー追加</h2>
+<% group.users.each do |user| %>
+  <% if event.users.find_by(id: user.id).blank? %>
+    <div class="mt-5 mx-auto" style="width: 60%;">
+      <table class="table table-borderless">
+        <tr>
+          <td class="text-right"><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+          <td class="text-center align-middle" width="50%"><%= user.nickname %></td>
+          <td width="30%"><%= link_to "追加する",group_event_event_users_path(group, event, event_user: { event_id: event.id , user_id: user.id }), method: :post, remote: true , class: 'btn btn-content'%></td>
+      </table>
+    </div>
+  <% end %>
+<% end %>

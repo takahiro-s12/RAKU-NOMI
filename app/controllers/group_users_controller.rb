@@ -10,7 +10,7 @@ class GroupUsersController < ApplicationController
   def destroy
     @group = Group.find(params[:group_id])
     GroupUser.find(params[:id]).destroy
-    redirect_to group_path(@group)
+    @group_user = @group.users.where(group_id: @group.id)
   end
 
   private

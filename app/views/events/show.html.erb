@@ -1,4 +1,4 @@
-<div class="main-body">
+<div class="main-body pb-5">
   <h2 class="page-title"><%= @event.name %></h2>
   <div class="container">
     <div class="row mt-5">
@@ -50,4 +50,7 @@
   <div class="bg-white mx-auto border border-dark" style="width: 50%; height: 10rem;">
     <%= @event.comment %>
   </div>
+</div>
+<div class="mt-5 mb-5 text-center" id="destroy_user">
+  <%= render 'events/destroy_user', group: @group, event: @event, event_users: @event_users %>
 </div>

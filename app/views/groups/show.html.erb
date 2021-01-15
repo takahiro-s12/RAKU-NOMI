@@ -34,30 +34,7 @@
       </table>
     </div>
   </div>
-  <div class="mt-5 mb-5 text-center">
-    <p>メンバー</p>
-    <div class="mx-auto bg-white" style="width: 70%;">
-      <table class='table' style='width: 100%;'>
-        <thead class="thead-light">
-          <th style="width: 10%;"></th>
-          <th>ニックネーム</th>
-          <th>好きな食べ物</th>
-          <th>好きな飲み物</th>
-          <th>嫌いな食べ物</th>
-          <th style="width: 15%"></th>
-        </thead>
-        <% @group.users.each do |user| %>
-        <tbody>
-          <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-          <td class="align-middle"><%= user.nickname %></td>
-          <td class="align-middle"><%= user.favorite_food %></td>
-          <td class="align-middle"><%= user.favorite_drink %></td>
-          <td class="align-middle"><%= user.hated_food %></td>
-          <% @group_user = GroupUser.find_by( group_id: @group.id, user_id: user.id) %>
-          <td class="align-middle"><%= link_to "退会する", group_group_user_path(@group,@group_user), method: :delete %></td>
-        </tbody>
-        <% end %>
-      </table>
-    </div>
+  <div class="mt-5 mb-5 text-center" id="destroy_group_user">
+    <%= render 'groups/destroy_user', group: @group, group_user: @group_user %>
   </div>
 </div>
