@@ -1,5 +1,8 @@
 <div class="main-body">
-  <h2 class="page-title">アンケート一覧</h2>
+  <div class="page-title">
+    <%= link_to @group.name + "ページに戻る", group_path(@group), class: 'page-back btn btn-content' %>
+    <h2 class="mb-0">アンケート一覧</h2>
+  </div>
   <div class="mx-auto text-center" style="width: 50%">
     <table class="table table-borderless">
       <thead class="border-bottom border-dark">

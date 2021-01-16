@@ -1,0 +1,27 @@
+<div class="border-top border-dark pt-3">
+  <table class="table table-borderless mx-auto text-center" style="width: 60%;">
+    <thead>
+      <tr>
+        <th width="20%">期限</th>
+        <th width="50%">Task</th>
+        <th width="15%"></th>
+        <th width="15%"></th>
+      </tr>
+    </thead>
+    <% tasks.each do |task| %>
+      <tbody>
+        <tr>
+          <td><%= task.limit_date %></td>
+          <td><%= task.task %></td>
+          <% if task.status == false %>
+            <td><%= link_to "完了", user_task_path(task.user, task), method: :patch, class: 'btn btn-content' %></td>
+          <% else %>
+            <td><i class="far fa-check-circle"></i></td>
+          <% end %>
+          <td><%= link_to "削除", "/users/#{task.user.id}/tasks/#{task.id}", method: :delete, class: 'btn btn-content' %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+<%= paginate tasks %>

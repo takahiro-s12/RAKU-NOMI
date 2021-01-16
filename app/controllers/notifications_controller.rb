@@ -1,9 +1,15 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = current_user.passive_notifications.page(params[:page]).per(20)
+    @notifications = current_user.passive_notifications.page(params[:page]).per(8)
     @notifications.where(checked: false).each do |notification|
       notification.update_attributes(checked: true)
     end
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    
   end
 
   def destroy_all

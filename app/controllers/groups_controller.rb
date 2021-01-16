@@ -21,6 +21,14 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group_user = @group.users.where(group_id: @group.id)
     @events = Event.where(group_id: @group.id)
+    @events = @events.where('date >= ?', Date.today).order(date: :asc)
+    @events = @events.page(params[:page]).per(6)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def edit

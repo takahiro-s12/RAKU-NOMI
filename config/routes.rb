@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post '/follow/:id' => 'relationships#follow', as: 'follow'
   post '/unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   get "/users/search" => 'users#search'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :tasks, only: [:index, :create, :update, :destroy]
+  end
   resources :groups, only: [:new, :create, :show, :edit, :update] do
     resources :group_users, only: [:create, :destroy]
     resources :questions, only: [:new, :create, :index, :show] do

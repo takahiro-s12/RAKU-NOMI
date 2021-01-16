@@ -1,10 +1,10 @@
 <div class="main-body">
   <h2 class="text-center pt-4 pb-4 border-bottom border-dark page-title">ユーザー情報編集</h2>
-  <%= form_with model:current_user, url:"/users/#{current_user.id}", method: :patch, local:true do |f| %>
+  <%= form_with model: current_user, url: "/users/#{current_user.id}", method: :patch, local:true do |f| %>
     <div class="container">
       <div class="row">
         <div class="col-lg-5 mt-5 pt-5 text-center">
-          <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'edit-profile-image', class: 'd-block mx-auto' %><br>
+          <%= attachment_image_tag current_user, :image, :fill, 120, 120, fallback: 'no-image.png', id: 'edit-profile-image', class: 'd-block mx-auto' %><br>
           <%= f.attachment_field :image, class: 'justify-content-center mt-5 img-field' %>
         </div>
         <div class="col-lg-7 text-center mt-5 mb-5">
@@ -44,4 +44,3 @@
     </div>
   <% end %>
 </div>
-<script scr="app.js"></script>

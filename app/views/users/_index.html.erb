@@ -1,0 +1,25 @@
+<table class="table mb-0">
+  <thead class="thead-light">
+    <tr>
+      <th class="text-center">日程</td>
+      <th class="text-center">グループ名</td>
+      <th class="text-center">飲み会名</td>
+      <th class="text-center">開始時間</td>
+    </tr>
+  </thead>
+  <% events.each do |event| %>
+    <tboby>
+      <tr>
+        <td class="text-center"><%= event.date %></td>
+        <td class="text-center"><%= event.group.name %></td>
+        <td class="text-center"><%= link_to event.name, group_event_path(event.group_id, event) %></td>
+        <% if event.start_time.present? %>
+          <td class="text-center"><%= event.start_time.strftime('%H:%M') %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      </tr>
+    </tboby>
+  <% end %>
+</table>
+<%= paginate events, remote: true %>

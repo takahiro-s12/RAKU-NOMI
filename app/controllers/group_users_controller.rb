@@ -2,19 +2,15 @@ class GroupUsersController < ApplicationController
   def create
     @users = current_user.follower_user & current_user.following_user
     @group_user = GroupUser.new(group_user_params)
-    if @group_user.save
-      group = Group.find(params[:group_id])
-      group.create_notification_add_user!(current_user)
-      redirect_to edit_group_path(group)
-    else
-      render 'groups/edit'
-    end
+    @group_user.save
+    @group = Group.find(params[:group_id])
+    @group.create_notification_add_user!(current_user)
   end
 
   def destroy
     @group = Group.find(params[:group_id])
-    GroupUser.find_by(user_id: params[:user_id], group_id: params[:group_id]).destroy
-    redirect_to group_path(params[:group_id])
+    GroupUser.find(params[:id]).destroy
+    @group_user = @group.users.where(group_id: @group.id)
   end
 
   private

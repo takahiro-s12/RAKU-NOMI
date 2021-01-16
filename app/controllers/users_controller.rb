@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
+
   def show
     @groups = current_user.groups
-    @events = current_user.events
+    @events = current_user.events.where('date >= ?', Date.today).order(date: :asc)
+    @events = @events.page(params[:page]).per(6)
     @answers = Answer.where(user_id: current_user.id, status: false)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def edit
@@ -24,6 +32,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:family_name,
                                  :first_name,
                                  :email,
+                                 :image,
                                  :nickname,
                                  :favorite_food,
                                  :favorite_drink,

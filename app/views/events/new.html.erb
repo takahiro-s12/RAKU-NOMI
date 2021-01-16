@@ -1,5 +1,8 @@
 <div class="main-body">
-  <h2 class="page-title">飲み会作成</h2>
+  <div class="page-title">
+    <%= link_to @group.name + "ページに戻る", group_path(@group), class: 'page-back btn btn-content' %>
+    <h2 class="mb-0">飲み会作成</h2>
+  </div>
   <div class="mt-5 text-center">
     <%= form_with model: @event, url: group_events_path(@group), method: :post, locul: true do |f| %>
       <%= f.label "飲み会名" %>
