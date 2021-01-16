@@ -26,6 +26,7 @@
             <% if unchecked_notifications.any? %>
               <i class="fa fa-circle notification-icon" style="color: red;"></i>
             <% end %>
+            <li><%= link_to "ToDoリスト", user_tasks_path(current_user), class: 'btn btn-nav' %></li>
             <li><%= link_to "通知", notifications_path, class: 'btn btn-nav' %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-nav' %></li>
           </ul>

@@ -1,5 +1,9 @@
 <div class="main-body">
   <h2 class="page-title">アンケート回答</h2>
+  <p class="text-center mt-5">
+    下記日程で飲み会を予定しています<br>
+    参加可能な日にチェックをし、回答してください
+  </p>
   <div class="mt-5 pt-5 mx-auto" style="width: 50%;">
     <%= form_with model: @answer, url: group_question_answer_path(@group, @question,@answer), method: :patch, local: true do |f| %>
       <table class="table table-borderless">

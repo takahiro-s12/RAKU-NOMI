@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_140610) do
+ActiveRecord::Schema.define(version: 2021_01_16_024832) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "user_id"
@@ -91,6 +91,15 @@ ActiveRecord::Schema.define(version: 2021_01_15_140610) do
     t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "task", null: false
+    t.date "limit_date", null: false
+    t.boolean "status", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
