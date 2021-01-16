@@ -1,7 +1,7 @@
-<p>今後の飲み会予定</p>
-<div class='mx-auto bg-white' style='width: 50%; height: 25rem;' id="event_paginate">
-  <table class='table' style='width: 100%;'>
-    <thead class="thead-light">
+<p>〜今後の飲み会予定〜</p>
+<div class='mx-auto bg-white main-table' style='width: 50%; height: 25rem;' id="event_paginate">
+  <table class='table table-borderless' style='width: 100%;'>
+    <thead>
       <tr>
         <th style='width: 25%;'>日程</th>
         <th style='width: 25%;'>飲み会名</th>
@@ -11,15 +11,17 @@
     </thead>
     <% events.each do |event| %>
       <tbody>
-        <td><%= event.date %></td>
-        <td><%= link_to event.name, group_event_path(group, event.id) %></td>
-        <% if event.start_time.present? & event.finish_time.present? %>
-          <td><%= event.start_time.strftime('%H:%M') %></td>
-          <td><%= event.finish_time.strftime('%H:%M') %></td>
-        <% else %>
-          <td></td>
-          <td></td>
-        <% end %>
+        <tr class="border-top border-secondary">
+          <td><%= event.date %></td>
+          <td><%= link_to event.name, group_event_path(group, event.id) %></td>
+          <% if event.start_time.present? & event.finish_time.present? %>
+            <td><%= event.start_time.strftime('%H:%M') %></td>
+            <td><%= event.finish_time.strftime('%H:%M') %></td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
+        </tr>
       </tbody>
     <% end %>
     <%= paginate events, remote: true %>

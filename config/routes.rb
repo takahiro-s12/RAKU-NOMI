@@ -16,10 +16,16 @@ Rails.application.routes.draw do
       resources :answers,only: [:edit, :update]
     end
     get "/events/:id/add_user" => "events#add_user", as: 'add_user_event'
+    get "/events/:id/event_mail" => "events#event_mail", as: 'event_mail'
+    get "/events/:id/event_confirm" => "events#event_confirm", as: 'event_confirm'
     resources :events, only: [:new, :create, :show, :edit, :update] do
       resources :event_users, only: [:create, :destroy]
     end
   end
   resources :notifications, only: [:index]
   delete "/notifications/destroy_all" => "notifications#destroy_all"
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

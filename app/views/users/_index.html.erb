@@ -1,15 +1,15 @@
-<table class="table mb-0">
-  <thead class="thead-light">
+<table class="table table-borderless mb-0">
+  <thead>
     <tr>
-      <th class="text-center">日程</td>
-      <th class="text-center">グループ名</td>
-      <th class="text-center">飲み会名</td>
-      <th class="text-center">開始時間</td>
+      <th class="text-center">日程</th>
+      <th class="text-center">グループ名</th>
+      <th class="text-center">飲み会名</th>
+      <th class="text-center">開始時間</th>
     </tr>
   </thead>
   <% events.each do |event| %>
     <tboby>
-      <tr>
+      <tr class="border-top border-secondary">
         <td class="text-center"><%= event.date %></td>
         <td class="text-center"><%= event.group.name %></td>
         <td class="text-center"><%= link_to event.name, group_event_path(event.group_id, event) %></td>

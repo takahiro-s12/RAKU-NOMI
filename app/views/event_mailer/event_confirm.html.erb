@@ -1,0 +1,19 @@
+<p>飲み会に関して詳細が決まりましたので、ご連絡致します。</p>
+<div class="event">
+  <p>〜詳細〜</p>
+  <p>飲み会名: <%= @event.name %></p>
+  <p>日にち: <%= @event.date %></p>
+  <% if @event.start_time.present? %>
+    <P>開始時間: <%= @event.start_time.strftime('%H:%M') %></P>
+  <% end %>
+  <p>会場: <%= @event.venue_name %></p>
+  <p>会場住所: <%= @event.venue_address %></p>
+  <p>幹事： <%= @admin.family_name %><%= @admin.first_name %></p>
+</div>
+<br>
+
+<p>〜詳細に関しては下記よりログインしてご確認ください。〜</p>
+<p></p>
+<br>
+<p>※このメールは送信専用です。</p>
+<br>
