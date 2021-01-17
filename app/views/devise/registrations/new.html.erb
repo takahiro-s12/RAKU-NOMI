@@ -5,22 +5,22 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="feild row mt-5">
-        <%= f.label "名前(姓)", class: "col-sm-4 text-right offset-sm-1" %>
+        <%= f.label :family_name, class: "col-sm-4 text-right offset-sm-1" %>
         <%= f.text_field :family_name, class: "col-sm-2" %>
       </div>
-      
+
       <div class="feild row mt-4">
-        <%= f.label "名前(名)", class: "col-sm-4 text-right offset-sm-1" %>
+        <%= f.label :first_name, class: "col-sm-4 text-right offset-sm-1" %>
         <%= f.text_field :first_name, class: "col-sm-2" %>
       </div>
 
       <div class="field row mt-4">
-        <%= f.label "ニックネーム", class: "col-sm-4 text-right offset-sm-1" %>
+        <%= f.label :nickname, class: "col-sm-4 text-right offset-sm-1" %>
         <%= f.text_field :nickname, class: "col-sm-2" %>
       </div>
 
       <div class="field row mt-4">
-        <%= f.label "Email", class: "col-sm-4 text-right offset-sm-1" %>
+        <%= f.label :email, class: "col-sm-4 text-right offset-sm-1" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-2" %>
       </div>
 
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="actions text-center mt-5">
+    <div class="actions text-center mt-5 pb-5">
       <%= f.submit "登録", class: 'btn btn-content btn-new' %>
     </div>
   <% end %>

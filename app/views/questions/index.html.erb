@@ -8,18 +8,18 @@
       <thead class="border-bottom border-dark">
         <tr>
           <th>質問開始日</th>
-          <th>アンケート名</th>
+          <th>アンケート内容</th>
         </tr>
       </thead>
       <% @questions.each do |question| %>
         <% @answer = Answer.find_by(user_id: current_user.id, question_id: question.id) %>
         <tbody>
           <tr>
-            <td><%= question.created_at.strftime('%m月%d日') %></td>
+            <td><%= question.created_at.strftime('%m/%d') %></td>
             <% if @answer.status == false %>
-              <td><%= link_to "アンケート", edit_group_question_answer_path(question.group_id, question.id, @answer) %></td>
+              <td><%= link_to question.title , edit_group_question_answer_path(question.group_id, question.id, @answer) %></td>
             <% else %>
-              <td><%= link_to "アンケート", group_question_path(question.group_id, question.id) %></td>
+              <td><%= link_to question.title , group_question_path(question.group_id, question.id) %></td>
             <% end %>
           </tr>
         </tbody>

@@ -10,35 +10,39 @@
         <div class="col-lg-7 text-center mt-5 mb-5">
           <table class="table table-borderless justify-content-center">
             <tr>
-              <td><%= f.label "姓" %></td>
+              <td><%= f.label :family_name %></td>
               <td><%= f.text_field :family_name %></td>
             </tr>
             <tr>
-              <td><%= f.label "名" %></td>
+              <td><%= f.label :first_name %></td>
               <td><%= f.text_field :first_name %></td>
             </tr>
             <tr>
-              <td><%= f.label "ニックネーム" %></td>
+              <td><%= f.label :nickname %></td>
               <td><%= f.text_field :nickname %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :birthday %></td>
+              <td><%= f.date_select( :birthday, start_year: 1930, end_year: (Time.now.year)) %></td>
             </tr>
             <tr>
               <td><%= f.label :email %></td>
               <td><%= f.email_field :email %></td>
             </tr>
             <tr>
-              <td><%= f.label "好きな食べ物" %></td>
+              <td><%= f.label :favorite_food %></td>
               <td><%= f.text_field :favorite_food %></td>
             </tr>
             <tr>
-              <td><%= f.label "好きな飲み物" %></td>
+              <td><%= f.label :favorite_drink %></td>
               <td><%= f.text_field :favorite_drink %></td>
             </tr>
             <tr>
-              <td><%= f.label "嫌いな食べ物" %></td>
+              <td><%= f.label :hated_food %></td>
               <td><%= f.text_field :hated_food %></td>
             </tr>
           </table>
-          <%= f.submit "更新", class: 'btn btn-content mr-5 mt-4' %>
+          <%= f.submit class: 'btn btn-content mr-5 mt-4' %>
         </div>
       </div>
     </div>

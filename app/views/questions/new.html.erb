@@ -8,6 +8,10 @@
       <div style="width:50%;" class="mx-auto">
         <table class="table table-borderless">
           <tr>
+            <td class="text-right"><%= f.label "アンケート内容" %></td>
+            <td><%= f.text_field :title %></td>
+          </tr>
+          <tr>
             <td class="text-right"><%= f.label "候補日1" %></td>
             <td><%= f.date_field :first_candidate %></td>
           </tr>

@@ -11,7 +11,7 @@
     <% tasks.each do |task| %>
       <tbody>
         <tr>
-          <td><%= task.limit_date %></td>
+          <td><%= l task.limit_date %></td>
           <td><%= task.task %></td>
           <% if task.status == false %>
             <td><%= link_to "完了", user_task_path(task.user, task), method: :patch, class: 'btn btn-content' %></td>

@@ -188,6 +188,15 @@ footer {
  }
 }
 
+#error_explanation {
+ color: red;
+ padding-top: 20px;
+}
+
+ul {
+ list-style: none;
+}
+
 
 @media screen and ( min-width:1250px) and (max-width:2000px) {
  .menu-title {
@@ -314,4 +323,11 @@ footer {
   height: 45px;
   line-height: 25px;
  }
+}
+
+.bubble {
+ position: absolute;
+ border-radius: 100%;
+ border: 1px solid #fff;
+ bottom: 1px;
 }

@@ -36,7 +36,8 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:first_candidate,
+    params.require(:question).permit(:title,
+                                     :first_candidate,
                                      :second_candidate,
                                      :final_candidate,
                                      user_ids: []
