@@ -19,6 +19,7 @@
 //= require_tree .
 /* global $*/
 
+/*TOPページのスクロールアクション*/
 $(function(){
   $(window).on('load scroll',function(){
     $('.animation').each(function(){
@@ -32,6 +33,7 @@ $(function(){
   });
 });
 
+/*プレビュー機能*/
 $(function(){
   $(document).on('turbolinks:load',function(){
     function readURL(input) {
@@ -39,12 +41,21 @@ $(function(){
         var reader = new FileReader();
         reader.onload = function (e){
           $('#edit-profile-image').attr('src',e.target.result);
-        }
+        };
         reader.readAsDataURL(input.files[0]);
       }
     }
     $('.img-field').change(function(){
       readURL(this);
     });
+  });
+});
+
+/*ハンバーガーメニュー*/
+$(function() {
+  $('.menu-trigger').on('click', function(event){
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
   });
 });

@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     if @task.save
       @tasks = Task.where(user_id: current_user.id)
+      @tasks = @tasks.page(params[:page]).per(5)
     else
       render 'index'
     end

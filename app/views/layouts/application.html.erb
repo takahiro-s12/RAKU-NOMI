@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RAKUNomi</title>
+    <title>RAKU NOMI</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,15 +21,27 @@
               <i class="fas fa-search"></i>
             <% end %>
           <% end %>
-          <ul class="nav-ul">
-            <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'btn btn-nav' %></li>
-            <% if unchecked_notifications.any? %>
-              <i class="fa fa-circle notification-icon" style="color: red;"></i>
-            <% end %>
-            <li><%= link_to "ToDoリスト", user_tasks_path(current_user), class: 'btn btn-nav' %></li>
-            <li><%= link_to "通知", notifications_path, class: 'btn btn-nav' %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-nav' %></li>
-          </ul>
+          <div id="sp-menu">
+            <h2 class="menu-title">メニュー</h2>
+            <ul class="nav-ul">
+              <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'btn btn-nav' %></li>
+              <% if unchecked_notifications.any? %>
+                <i class="fa fa-circle notification-icon" style="color: red;"></i>
+              <% end %>
+              <li><%= link_to "ToDoリスト", user_tasks_path(current_user), class: 'btn btn-nav' %></li>
+              <li><%= link_to "通知", notifications_path, class: 'btn btn-nav' %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-nav' %></li>
+            </ul>
+          </div>
+          <!---ハンバーガーメニューicon-->
+          <div id="hm-icon">
+            <a class="menu-trigger" href="#">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+
         </div>
       </header>
     <% else %>
