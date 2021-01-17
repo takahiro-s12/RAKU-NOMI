@@ -176,7 +176,7 @@ footer {
 .pagination {
  position: absolute;
  right: 40%;
- bottom: 5%;
+ bottom: 3%;
 }
 
 #notification_paginate {
@@ -185,5 +185,133 @@ footer {
   position: absolute;
   right: 45%;
   bottom: -10%;
+ }
+}
+
+
+@media screen and ( min-width:1250px) and (max-width:2000px) {
+ .menu-title {
+  display: none;
+ }
+ #hm-icon {
+  display: none;
+ }
+}
+
+@media screen and (max-width:1250px) {
+ .menu-title {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+ }
+
+ // ハンバーガーアイコン
+ .search-form {
+  padding-right: 50px;
+ }
+
+ #hm-icon {
+  position: fixed;
+  right: 70px;
+  top: 9px;
+  z-index: 10;
+ }
+
+ .menu-trigger {
+  position: relative;
+  width: 30px;
+  height: 22px;
+ }
+
+ .menu-trigger,
+ .menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+ }
+
+ .menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+ }
+
+ .menu-trigger span:nth-child(1) {
+  top: 0;
+ }
+
+ .menu-trigger span:nth-child(2) {
+  top: 40%;
+ }
+
+ .menu-trigger span:nth-child(3) {
+  bottom: 0;
+ }
+
+ .menu-trigger.active span:nth-child(1) {
+  -webkit-transform: translateY(9px) rotate(-45deg);
+  transform: translateY(9px) rotate(-45deg);
+  background-color: #fff;
+ }
+
+ .menu-trigger.active span:nth-child(2) {
+  opacity: 0;
+ }
+
+ .menu-trigger.active span:nth-child(3) {
+  -webkit-transform: translateY(-9px) rotate(45deg);
+  transform: translateY(-9px) rotate(45deg);
+  background-color: #fff;
+ }
+
+ // spメニュー
+
+
+ #sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  display: none;
+  z-index: 9;
+ }
+
+ #sp-menu ul {
+  display: block;
+ }
+
+ #sp-menu li {
+  text-align: center;
+  margin-bottom: 5px;
+ }
+
+ #sp-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0;
+  background: #000;
+  margin-left: 0;
+ }
+
+ .btn,
+ .btn-nav {
+
+ }
+}
+
+@media screen and (max-width:1000px) {
+ .top-button-new .btn-top {
+  height: 45px;
+  line-height: 25px;
+ }
+ .top-button-log .btn-top {
+  height: 45px;
+  line-height: 25px;
  }
 }

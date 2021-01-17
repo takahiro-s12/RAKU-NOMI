@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 class HomesController < ApplicationController
-  def top; end
+  def top
+  end
 
-  def about; end
+  def about
+  end
+  
+  def seat
+  end
 end

@@ -46,6 +46,21 @@ class EventsController < ApplicationController
     @event_user = EventUser.new
   end
 
+  def event_mail
+    @group = Group.find(params[:group_id])
+    @event = Event.find(params[:id])
+  end
+
+  def event_confirm
+    @group = Group.find(params[:group_id])
+    @event = Event.find(params[:id])
+    @event_users = EventUser.where(event_id: @event.id)
+    @event_users.each do |event_user|
+      EventMailer.event_confirm(event_user).deliver
+    end
+  end
+
+
   private
 
   def event_params

@@ -41,6 +41,7 @@
       </div>
       <div class="text-center mt-5 mr-5 pb-5">
         <%= f.submit "更新", class: "btn btn-content" %>
+        <%= link_to "メール", group_event_mail_path(@event.group, @event), class: 'btn btn-content'%>
       </div>
     </div>
   <% end %>

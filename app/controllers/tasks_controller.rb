@@ -1,14 +1,16 @@
 class TasksController < ApplicationController
   def index
     @task = Task.new
-    @tasks = current_user.tasks.page(params[:page]).per(5)
+    @tasks = Task.where(user_id: current_user.id)
+    @tasks = @tasks.page(params[:page]).per(5)
   end
 
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
-      @tasks = current_user.tasks
+      @tasks = Task.where(user_id: current_user.id)
+      @tasks = @tasks.page(params[:page]).per(5)
     else
       render 'index'
     end
