@@ -52,6 +52,7 @@
   height: 80px;
   margin: 0 auto;
   line-height: 80px;
+  position: relative;
   .logo {
    width: 230px;
    height: 60px;
@@ -175,7 +176,10 @@ footer {
 
 .pagination {
  position: absolute;
- right: 40%;
+ left: 50%;
+ transform: translateX(-50%);
+ -webkit-transform: translateX(-50%);
+ -ms-transform: translateX(-50%);
  bottom: 3%;
 }
 
@@ -183,7 +187,10 @@ footer {
  position: relative;
  .pagination {
   position: absolute;
-  right: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   bottom: -10%;
  }
 }
@@ -220,8 +227,8 @@ ul {
  }
 
  #hm-icon {
-  position: fixed;
-  right: 70px;
+  position: absolute;
+  right: 0;
   top: 9px;
   z-index: 10;
  }
