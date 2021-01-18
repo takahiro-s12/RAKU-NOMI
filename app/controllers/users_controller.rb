@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:family_name,
                                  :first_name,
                                  :email,
+                                 :birthday,
                                  :image,
                                  :nickname,
                                  :favorite_food,

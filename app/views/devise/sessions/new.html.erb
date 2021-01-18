@@ -1,5 +1,5 @@
 <div class="main-body">
-  <h1 class="body-title text-center mt-5">ログイン</h1>
+  <h1 class="body-title text-center mt-5"><%= t'.sign_in' %></h1>
   <%= form_with model: @user, url: user_session_path, local: true do |f| %>
     <div class="container">
       <!--エラー文入れる-->
@@ -9,7 +9,7 @@
       </div>
 
       <div class="field row mt-5 pt-sm-5">
-        <%= f.label "パスワード", class: "col-sm-4 text-right" %>
+        <%= f.label :password, class: "col-sm-4 text-right" %>
         <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-4" %>
       </div>
 
@@ -22,7 +22,7 @@
     </div>
 
     <div class="actions text-center mt-5">
-      <%= f.submit "ログイン", class: 'btn btn-content btn-new' %>
+      <%= f.submit t('.sign_in'), class: 'btn btn-content btn-new' %>
     </div>
   <% end %>
   <div class='text-center mt-5'>

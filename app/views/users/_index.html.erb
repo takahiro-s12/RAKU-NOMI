@@ -10,7 +10,7 @@
   <% events.each do |event| %>
     <tboby>
       <tr class="border-top border-secondary">
-        <td class="text-center"><%= event.date %></td>
+        <td class="text-center"><%= l event.date %></td>
         <td class="text-center"><%= event.group.name %></td>
         <td class="text-center"><%= link_to event.name, group_event_path(event.group_id, event) %></td>
         <% if event.start_time.present? %>

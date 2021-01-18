@@ -77,11 +77,13 @@ gem 'devise'
 gem 'public_uid'
 # レイアウト
 gem 'bootstrap', '~> 4.5'
-gem 'dotenv-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.2.1'
 gem 'pry-byebug'
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem 'dotenv-rails'
 group :production do
