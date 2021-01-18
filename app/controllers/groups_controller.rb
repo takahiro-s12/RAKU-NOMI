@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @group = Group.new
     @users = current_user.following_user & current_user.follower_user
@@ -42,7 +44,9 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_path(@group)
     else
-      render edit_group_path(@group)
+      @group_user = GroupUser.new
+      @users = current_user.follower_user & current_user.following_user
+      render :edit
     end
   end
 

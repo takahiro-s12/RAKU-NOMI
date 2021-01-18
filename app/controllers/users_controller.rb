@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     @groups = current_user.groups
@@ -17,8 +18,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    redirect_to user_path(current_user)
+    if current_user.update(user_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def search

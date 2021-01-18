@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @task = Task.new
     @tasks = Task.where(user_id: current_user.id)
@@ -8,11 +10,11 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
+    @tasks = Task.where(user_id: current_user.id)
+    @tasks = @tasks.page(params[:page]).per(5)
     if @task.save
-      @tasks = Task.where(user_id: current_user.id)
-      @tasks = @tasks.page(params[:page]).per(5)
     else
-      render 'index'
+      render :index
     end
   end
 

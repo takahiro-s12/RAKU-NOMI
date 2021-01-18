@@ -6,7 +6,4 @@ class HomesController < ApplicationController
 
   def about
   end
-  
-  def seat
-  end
 end

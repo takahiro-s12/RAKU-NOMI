@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @question = Question.new
     @group = Group.find(params[:group_id])
@@ -15,7 +17,7 @@ class QuestionsController < ApplicationController
       @question.create_notification_question!(current_user)
       redirect_to group_path(@group)
     else
-      render new_group_question_path(@group)
+      render :new
     end
   end
 

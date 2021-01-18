@@ -1,5 +1,10 @@
 <div class="main-body">
   <h2 class="page-title">グループ作成</h2>
+  <!---エラー文-->
+  <div class="alart">
+    <%= render "layouts/error_form", resource: @group %>
+  </div>
+
   <div class="mt-5 text-center">
     <%= form_with model: @group, url: groups_path(@group), method: :post, local: true do |f| %>
       <%= f.label "グループ名" %>

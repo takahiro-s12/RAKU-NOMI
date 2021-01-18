@@ -1,4 +1,6 @@
 class GroupUsersController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @users = current_user.follower_user & current_user.following_user
     @group_user = GroupUser.new(group_user_params)
