@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     @users = User.search_for(@content)
   end
 
+  def followed
+    @users = current_user.follower_user
+  end
+
   private
 
   def user_params

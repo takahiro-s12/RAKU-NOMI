@@ -59,7 +59,7 @@
 </div>
 <div class="container mt-5 pb-5">
   <div class="row">
-    <table class="table table-borderless col-lg-3 border border-dark">
+    <table class="table table-borderless col-lg-2 border border-dark">
       <thead class="border-bottom border-dark">
         <tr>
           <th class="text-center group-color">参加グループ一覧</th>
@@ -73,14 +73,17 @@
         </tboby>
       <% end %>
     </table>
-    <div class="col-lg-1"></div>
-    <div class="col-lg-8">
-      <p class="text-center">〜メンバーリスト〜</p>
+    <div class="col-lg-10">
+      <div class="member-list">
+        <p class="text-center">〜メンバーリスト〜</p>
+        <p class="follower-list"><%= link_to "友達かも？", user_follower_path(current_user) %></p>
+      </div>
       <table class="table table-borderless">
         <tr>
           <thead class="border-bottom border-dark thead-light border border-dark">
             <th></th>
             <th class="text-center">ニックネーム</th>
+            <th class="text-center">誕生日</th>
             <th class="text-center">好きな食べ物</th>
             <th class="text-center">好きな飲み物</th>
             <th class="text-center">嫌いな食べ物</th>
@@ -90,6 +93,7 @@
             <tbody class="border border-dark">
               <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
               <td class="align-middle text-center"><%= user.nickname %></td>
+              <td class="align-middle text-center"><%= user.birthday %></td>
               <td class="align-middle text-center"><%= user.favorite_food %></td>
               <td class="align-middle text-center"><%= user.favorite_drink %></td>
               <td class="align-middle text-center"><%= user.hated_food %></td>

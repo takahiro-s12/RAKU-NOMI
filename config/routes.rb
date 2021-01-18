@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   get "/users/search" => 'users#search'
   resources :users, only: [:show, :edit, :update] do
+    get "/followed" => 'users#followed', as: 'follower'
     resources :tasks, only: [:index, :create, :update, :destroy]
   end
   resources :groups, only: [:new, :create, :show, :edit, :update] do
@@ -28,5 +29,5 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  
+
 end

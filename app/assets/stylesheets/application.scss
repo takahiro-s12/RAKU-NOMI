@@ -204,6 +204,15 @@ ul {
  list-style: none;
 }
 
+.member-list {
+ position: relative;
+}
+
+.follower-list {
+ position: absolute;
+ right: 0;
+ top: 0;
+}
 
 @media screen and ( min-width:1250px) and (max-width:2000px) {
  .menu-title {

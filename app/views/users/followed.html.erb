@@ -1,0 +1,33 @@
+<div class="main-body">
+  <h2 class="page-title">フォロワー</h2>
+  <div class="mx-auto text-center" style="width:80%;">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th></th>
+          <th>名前</th>
+          <th>誕生日</th>
+          <th>好きな食べ物</th>
+          <th>好きな飲み物</th>
+          <th>嫌いな食べ物</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @users.each do |user| %>
+        <% unless current_user.following?(user) %>
+          <tbody>
+            <tr>
+              <td><%= attachment_image_tag user, :image, :fill, 100, 100, fallback: 'no-image.png', id: 'member-image' %></td>
+              <td><%= user.nickname %></td>
+              <td><%= user.birthday %></td>
+              <td><%= user.favorite_food %></td>
+              <td><%= user.favorite_drink %></td>
+              <td><%= user.hated_food %></td>
+              <td><%= link_to "フォローする", follow_path(user.id), method: :post, class: 'btn btn-content' %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
