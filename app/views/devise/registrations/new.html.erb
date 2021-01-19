@@ -4,39 +4,39 @@
     <div class="container">
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="feild row mt-5">
-        <%= f.label :family_name, class: "col-sm-4 text-right offset-sm-1" %>
-        <%= f.text_field :family_name, class: "col-sm-2" %>
-      </div>
-
-      <div class="feild row mt-4">
-        <%= f.label :first_name, class: "col-sm-4 text-right offset-sm-1" %>
-        <%= f.text_field :first_name, class: "col-sm-2" %>
+      <div class="field row mt-5">
+        <%= f.label :family_name, class: "col-sm-4 offset-sm-1" %>
+        <%= f.text_field :family_name, class: "col-sm-2 sign_form" %>
       </div>
 
       <div class="field row mt-4">
-        <%= f.label :nickname, class: "col-sm-4 text-right offset-sm-1" %>
-        <%= f.text_field :nickname, class: "col-sm-2" %>
+        <%= f.label :first_name, class: "col-sm-4 offset-sm-1" %>
+        <%= f.text_field :first_name, class: "col-sm-2 sign_form" %>
       </div>
 
       <div class="field row mt-4">
-        <%= f.label :email, class: "col-sm-4 text-right offset-sm-1" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-2" %>
+        <%= f.label :nickname, class: "col-sm-4 offset-sm-1" %>
+        <%= f.text_field :nickname, class: "col-sm-2 sign_form" %>
       </div>
 
       <div class="field row mt-4">
-        <div class="col-sm-4 text-right offset-sm-1">
+        <%= f.label :email, class: "col-sm-4 offset-sm-1" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-2 sign_form" %>
+      </div>
+
+      <div class="field row mt-4">
+        <div class="col-sm-4 offset-sm-1 pass">
           <%= f.label "パスワード" %>
           <% if @minimum_password_length %>
           (<%= @minimum_password_length %>文字以上)
           <% end %>
         </div>
-        <%= f.password_field :password, autocomplete: "new-password", class: "col-sm-2" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "col-sm-2 sign_form" %>
       </div>
 
       <div class="field row mt-4">
-        <%= f.label "パスワード(確認)", class: "col-sm-4 text-right offset-sm-1" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-2" %>
+        <%= f.label "パスワード(確認)", class: "col-sm-4 offset-sm-1" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-2 sign_form" %>
       </div>
     </div>
 

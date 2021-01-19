@@ -23,3 +23,45 @@
   border-radius: 50%;
   border: solid 3px #000;
 }
+
+.main-table {
+  width: 100%;
+  height: 440px;
+  border-radius: 240px 15px 100px 15px/ 15px 200px 15px 185px;
+  padding: 2%;
+  border: 6px solid #333;
+  background: #FFF;
+ }
+
+ .member-table {
+   border: solid 1px #000;
+ }
+
+@media screen and (min-width: 426px) and (max-width: 900px){
+  .member-table,
+  .responsive-member{
+   display: none;
+ }
+
+ .responsive-width {
+   width: 30%;
+ }
+
+}
+
+@media screen and (max-width: 425px) {
+
+  .responsive-font {
+    font-size: 10px;
+  }
+
+  .main-table {
+    height: 350px;
+  }
+
+  .member-table,
+  .responsive-member{
+   display: none;
+ }
+
+}

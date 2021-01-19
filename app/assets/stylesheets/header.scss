@@ -45,6 +45,7 @@ header {
   margin-top: 2px;
 }
 
+.bottom-btn .btn-nav,
 li .btn-nav {
   border: 2px solid #000;
   border-radius: 30px;
@@ -54,11 +55,12 @@ li .btn-nav {
   margin-left: 20px;
 }
 
+.bottom-btn .btn-nav:hover,
 li .btn-nav:hover {
   box-shadow: -4px -4px 0 #000;
 }
 
-@media screen and ( min-width:1250px) and (max-width:2000px) {
+@media screen and ( min-width:1250px) {
  .menu-title {
   display: none;
  }
@@ -161,17 +163,48 @@ li .btn-nav:hover {
  }
 }
 
-@media screen and (max-width:1000px) {
- .top-button-new .btn-top {
-  height: 45px;
-  line-height: 25px;
+ @media screen and (max-width: 425px) {
+  header {
+   height: 80px;
+  }
+
+  .header-content {
+   display: block;
+   height: 80px;
+   line-height: 80px;
+   text-align: center;
+
+  }
+
+  .logo {
+   width: 180px;
+   height: 45px;
+  }
+
+  #hm-icon {
+   position: absolute;
+   right: 0;
+   top: 0;
+  }
+
+  .search-form {
+   height: 18px;
+  }
+
+  .search-form #content {
+   height: 18px;
+   width: 160px;
+   vertical-align: top;
+  }
+
+  .search-form .search-submit {
+   height: 18px;
+   width: 30px;
+   vertical-align: top;
+  }
+
+  .fa-search {
+   font-size: 12px;
+  }
+
  }
- .top-button-log .btn-top {
-  height: 45px;
-  line-height: 25px;
- }
-}
-
-
-
-

@@ -24,6 +24,10 @@
   box-sizing: border-box;
  }
 
+ *:focus {
+  outline: 0 !important;
+ }
+
  html {
   width: 100%;
  }
@@ -57,11 +61,6 @@
   font-size: 1.8rem;
  }
 
- .actions .btn-new {
-  width: 15%;
-  height: 60px;
-  font-size: 180%;
- }
 
 footer {
  text-align: center;
@@ -156,3 +155,4 @@ ul {
  border: 1px solid #fff;
  bottom: 1px;
 }
+
