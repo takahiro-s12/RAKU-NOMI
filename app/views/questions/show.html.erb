@@ -1,0 +1,66 @@
+<div class="main-body">
+  <h2 class="page-title">アンケート結果</h2>
+  <div class="mx-auto text-center mt-5" style="width: 50%;">
+    <table class="table table-borderless">
+      <tr>
+        <td>候補日1</td>
+        <td><%= l @question.first_candidate %></td>
+        <td><%= @answers1.count %>人</td>
+      </tr>
+      <% if @question.second_candidate.present? %>
+        <tr>
+          <td>候補日2</td>
+          <td><%= l @question.second_candidate %></td>
+          <td><%= @answers2.count %>人</td>
+        </tr>
+      <% end %>
+      <% if @question.final_candidate.present? %>
+        <tr>
+          <td>候補日3</td>
+          <td><%= l @question.final_candidate %></td>
+          <td><%= @answers3.count %>人</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="mx-auto text-center bg-white mt-5" style="width: 70%;">
+    <table class="table table-borderless border border-dark">
+      <thead class="border-bottom border-dark thead-light">
+        <tr>
+          <th>名前</th>
+          <th>候補日1</th>
+          <th>候補日2</th>
+          <th>候補日3</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @done_answers.each do |answer| %>
+        <tbody class="border-bottom border-dark">
+          <tr>
+            <td><%= answer.user.nickname %></td>
+            <% if answer.first_candidate == true %>
+              <td>◯</td>
+            <% else %>
+              <td>×</td>
+            <% end %>
+            <% if answer.second_candidate == true %>
+              <td>◯</td>
+            <% else %>
+              <td>×</td>
+            <% end %>
+            <% if answer.final_candidate == true %>
+              <td>◯</td>
+            <% else %>
+              <td>×</td>
+            <% end %>
+            <% if answer.user_id == current_user.id %>
+              <td><%= link_to "変更する", edit_group_question_answer_path(@question.group_id, @question, answer) %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

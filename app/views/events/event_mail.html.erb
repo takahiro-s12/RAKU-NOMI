@@ -1,0 +1,14 @@
+<div class="main-body">
+  <div class="page-title">
+    <%= link_to @event.name + "ページに戻る", group_event_path(@event.group, @event), class: 'page-back btn btn-content' %>
+    <h2 class="mb-0">メール送信</h2>
+  </div>
+  <div class="text-center mt-5 pt-5 mb-5">
+    <p>更新した飲み会内容を参加メンバーにメールで連絡します</p>
+    <p>よろしければ、下のボタンを押してください</p>
+    <p>※内容の更新を行ってからボタンを押してください</p>
+  </div>
+  <div class="text-center pt-5 pb-5">
+    <%= link_to "メールを送信", group_event_confirm_path(@group, @event), class: "btn btn-content btn-event" %>
+  </div>
+</div>

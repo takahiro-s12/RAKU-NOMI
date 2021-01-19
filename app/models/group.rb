@@ -2,6 +2,10 @@ class Group < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :users, through: :group_users
   has_many :notifications, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :questions, dependent: :destroy
+
+  validates :name, presence: true
 
   def create_notification_add_user!(current_user)
     @group_users = GroupUser.last(1)

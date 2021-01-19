@@ -1,0 +1,23 @@
+<div class="main-body pb-5">
+  <h2 class="page-title">ToDoリスト</h2>
+
+  <!---エラー文-->
+  <div class="alart">
+    <%= render "layouts/error_form", resource: @task %>
+  </div>
+
+  <div>
+    <%= form_with model: @task, url: "/users/#{current_user.id}/tasks", method: :post, remote: true do |f| %>
+      <div class="text-center mt-5 mb-5">
+        <%= f.label :task %>
+        <%= f.text_field :task, class: "mr-5" %>
+        <%= f.label "期限" %>
+        <%= f.date_field :limit_date %>
+        <%= f.submit "作成", class: "btn btn-content" %>
+      </div>
+    <% end %>
+    <div id="task_index">
+      <%= render "tasks/index", tasks: @tasks %>
+    </div>
+  </div>
+</div>

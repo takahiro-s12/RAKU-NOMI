@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @event = Event.new
     @group = Group.find(params[:group_id])
@@ -15,13 +17,14 @@ class EventsController < ApplicationController
       @event.create_notification_new_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)
     else
-      render new_group_event_path(@group)
+      render :new
     end
   end
 
   def show
     @event = Event.find(params[:id])
     @group = Group.find(params[:group_id])
+    @event_users = EventUser.where(event_id: @event.id)
   end
 
   def edit
@@ -35,7 +38,7 @@ class EventsController < ApplicationController
       @event.create_notification_edit_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)
     else
-      render edit_group_event_path(@group, @event)
+      render :edit
     end
   end
 
@@ -44,6 +47,21 @@ class EventsController < ApplicationController
     @group = Group.find(params[:group_id])
     @event_user = EventUser.new
   end
+
+  def event_mail
+    @group = Group.find(params[:group_id])
+    @event = Event.find(params[:id])
+  end
+
+  def event_confirm
+    @group = Group.find(params[:group_id])
+    @event = Event.find(params[:id])
+    @event_users = EventUser.where(event_id: @event.id)
+    @event_users.each do |event_user|
+      EventMailer.event_confirm(event_user).deliver
+    end
+  end
+
 
   private
 

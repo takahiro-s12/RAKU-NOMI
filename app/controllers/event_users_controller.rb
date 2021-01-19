@@ -1,17 +1,19 @@
 class EventUsersController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @event = Event.find(params[:event_id])
     @event_user = EventUser.new(event_user_params)
     @group = Group.find(params[:group_id])
-    if @event_user.save
-      @event.create_notification_add_event_user!(current_user)
-      redirect_to group_add_user_event_path(@group, @event)
-    else
-      render 'events/add_user'
-    end
+    @event_user.save
+    @event.create_notification_add_event_user!(current_user)
   end
 
   def destroy
+    @group = Group.find(params[:group_id])
+    @event = Event.find(params[:event_id])
+    EventUser.find(params[:id]).destroy
+    @event_users = EventUser.where(event_id: @event.id)
   end
 
   private

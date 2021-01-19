@@ -1,20 +1,29 @@
 <div class="main-body">
-  <h2>グループ作成</h2>
-  <%= form_with model: @group, url: groups_path(@group), method: :post, local: true do |f| %>
-    <%= f.label "グループ名" %>
-    <%= f.text_field :name %>
-      <div>
-        <p>追加メンバー</p>
-        <table class="table">
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-              <td><%= user.nickname %></td>
-              <td><%= f.check_box :user_ids, { multiple: true, checked: @group.users.find_by(id: user.id).present?,include_hidden: false}, user[:id] %></td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    <%= f.submit "作成" %>
-  <% end %>
+  <h2 class="page-title">グループ作成</h2>
+  <!---エラー文-->
+  <div class="alart">
+    <%= render "layouts/error_form", resource: @group %>
+  </div>
+
+  <div class="mt-5 text-center">
+    <%= form_with model: @group, url: groups_path(@group), method: :post, local: true do |f| %>
+      <%= f.label "グループ名" %>
+      <%= f.text_field :name %>
+        <div class='mt-5 border-top border-dark'>
+          <p class='mt-3'>追加メンバー</p>
+          <div style="width:50%;", class='mx-auto bg-white'>
+            <table class="table">
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+                  <td class='text-left align-middle'><%= user.nickname %></td>
+                  <td class='align-middle'><%= f.check_box :user_ids, { multiple: true, checked: @group.users.find_by(id: user.id).present?,include_hidden: false}, user[:id] %></td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      <%= f.submit "作成", class: 'btn btn-content mb-sm-4 mt-2' %>
+    <% end %>
+  </div>
 </div>

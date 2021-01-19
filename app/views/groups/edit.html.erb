@@ -1,24 +1,23 @@
 <div class="main-body">
-  <h2>グループ編集</h2>
-  <%= form_with model: @group, method: :patch, local: true do |f| %>
-    <div>
+  <div class="page-title">
+    <%= link_to @group.name + "ページに戻る", group_path(@group), class: 'page-back btn btn-content' %>
+    <h2 class="mb-0">グループ編集</h2>
+  </div>
+  <!---エラー文-->
+  <div class="alart">
+    <%= render "layouts/error_form", resource: @group %>
+  </div>
+
+  <div class="mt-5 text-center">
+    <%= form_with model: @group, method: :patch, local: true do |f| %>
       <%= f.label "グループ名" %>
       <%= f.text_field :name %>
-      <%= f.submit "更新" %>
-    </div>
-  <% end %>
-    <div>
-      <p>追加メンバー</p>
-      <% @users.each do |user| %>
-        <% if @group.users.find_by(id: user.id).blank? %>
-        <table class="table">
-          <tr>
-            <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-            <td><%= user.nickname %></td>
-            <td><%= link_to "追加する", group_group_users_path(@group, group_user: { group_id: @group.id , user_id: user.id } ), method: :post %></td>
-          </tr>
-        </table>
-        <% end %>
-      <% end %>
+      <%= f.submit "更新", class: 'btn btn-content' %>
+    <% end %>
+  </div>
+    <div class="mt-5 border-top border-dark text-center">
+      <div  id="add_user">
+        <%= render 'groups/add_user', users: @users, group: @group %>
+      </div>
     </div>
 </div>

@@ -1,0 +1,6 @@
+<div class="main-body d-flex flex-column align-items-center justify-content-center">
+  <h1>メールが送信されました</h1>
+  <div class="mt-5 pb-5">
+    <%= link_to @event.name + "ページに戻る", group_event_path(@event.group, @event), class: 'btn btn-content' %>
+  </div>
+</div>

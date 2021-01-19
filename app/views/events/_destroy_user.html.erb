@@ -1,0 +1,27 @@
+<p>〜参加メンバー〜</p>
+  <div class="mx-auto border border-dark" style="width: 70%;">
+    <table class="table table-borderless mb-0">
+      <thead class="thead-light">
+        <tr class="border-bottom border-dark">
+          <th></th>
+          <th>名前</th>
+          <th>好きな食べ物</th>
+          <th>好きな飲み物</th>
+          <th>嫌いな食べ物</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% event_users.each do |event_user| %>
+        <tbody>
+          <tr class="border-top border-dark">
+            <td><%= attachment_image_tag event_user.user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+            <td class="align-middle"><%= event_user.user.nickname %></td>
+            <td class="align-middle"><%= event_user.user.favorite_food %></td>
+            <td class="align-middle"><%= event_user.user.favorite_drink %></td>
+            <td class="align-middle"><%= event_user.user.hated_food %></td>
+            <td class="align-middle" width="14%"><%= link_to "不参加", group_event_event_user_path(group, event, event_user), method: :delete, remote: true, class: 'btn btn-content' %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>

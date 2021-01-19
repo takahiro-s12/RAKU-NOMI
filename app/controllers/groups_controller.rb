@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @group = Group.new
     @users = current_user.following_user & current_user.follower_user
@@ -6,7 +8,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = current_user.groups.build(group_params)
+    @group = Group.new(group_params)
     @group.users << current_user
     @users = current_user.following_user & current_user.follower_user
     if @group.save
@@ -21,6 +23,14 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group_user = @group.users.where(group_id: @group.id)
     @events = Event.where(group_id: @group.id)
+    @events = @events.where('date >= ?', Date.today).order(date: :asc)
+    @events = @events.page(params[:page]).per(6)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def edit
@@ -34,7 +44,9 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_path(@group)
     else
-      render edit_group_path(@group)
+      @group_user = GroupUser.new
+      @users = current_user.follower_user & current_user.following_user
+      render :edit
     end
   end
 

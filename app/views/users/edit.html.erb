@@ -1,44 +1,55 @@
 <div class="main-body">
-  <h2>ユーザー情報編集</h2>
-  <%= form_with model:current_user, url:"/users/#{current_user.id}", method: :patch, local:true do |f| %>
+
+  <h2 class="text-center pt-4 pb-4 border-bottom border-dark page-title">ユーザー情報編集</h2>
+
+  <!---エラー文-->
+  <div class="alart">
+    <%= render "layouts/error_form", resource: current_user %>
+  </div>
+
+  <%= form_with model: current_user, url: "/users/#{current_user.id}", method: :patch, local:true do |f| %>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'profile-image' %><br>
-          <%= f.attachment_field :image %>
+        <div class="col-lg-5 mt-5 pt-5 text-center">
+          <%= attachment_image_tag current_user, :image, :fill, 120, 120, fallback: 'no-image.png', id: 'edit-profile-image', class: 'd-block mx-auto' %><br>
+          <%= f.attachment_field :image, class: 'justify-content-center mt-5 img-field' %>
         </div>
-        <div class="col-lg-6">
-          <table class="table table-borderless">
+        <div class="col-lg-7 text-center mt-5 mb-5">
+          <table class="table table-borderless justify-content-center">
             <tr>
-              <td><%= f.label "姓" %></td>
+              <td><%= f.label :family_name %></td>
               <td><%= f.text_field :family_name %></td>
             </tr>
             <tr>
-              <td><%= f.label "名" %></td>
+              <td><%= f.label :first_name %></td>
               <td><%= f.text_field :first_name %></td>
             </tr>
             <tr>
-              <td><%= f.label "ニックネーム" %></td>
+              <td><%= f.label :nickname %></td>
               <td><%= f.text_field :nickname %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :birthday %></td>
+              <td><%= f.date_select( :birthday, start_year: 1930, end_year: (Time.now.year)) %></td>
             </tr>
             <tr>
               <td><%= f.label :email %></td>
               <td><%= f.email_field :email %></td>
             </tr>
             <tr>
-              <td><%= f.label "好きな食べ物" %></td>
+              <td><%= f.label :favorite_food %></td>
               <td><%= f.text_field :favorite_food %></td>
             </tr>
             <tr>
-              <td><%= f.label "好きな飲み物" %></td>
+              <td><%= f.label :favorite_drink %></td>
               <td><%= f.text_field :favorite_drink %></td>
             </tr>
             <tr>
-              <td><%= f.label "嫌いな食べ物" %></td>
+              <td><%= f.label :hated_food %></td>
               <td><%= f.text_field :hated_food %></td>
             </tr>
           </table>
-          <%= f.submit "更新" %>
+          <%= f.submit class: 'btn btn-content mr-5 mt-4' %>
         </div>
       </div>
     </div>
