@@ -1,5 +1,11 @@
 <div class="main-body pb-5">
   <h2 class="page-title">ToDoリスト</h2>
+
+  <!---エラー文-->
+  <div class="alart">
+    <%= render "layouts/error_form", resource: @task %>
+  </div>
+
   <div>
     <%= form_with model: @task, url: "/users/#{current_user.id}/tasks", method: :post, remote: true do |f| %>
       <div class="text-center mt-5 mb-5">

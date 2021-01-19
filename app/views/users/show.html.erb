@@ -17,8 +17,13 @@
             <td class="text-center"><%= current_user.nickname %></td>
           </tr>
           <tr>
-            <th class="text-center"><%= t('user.birthday') %></th>
-            <td class="text-center"><%= l current_user.birthday %></td>
+            <% if current_user.birthday.present? %>
+              <th class="text-center"><%= t('user.birthday') %></th>
+              <td class="text-center"><%= l current_user.birthday %></td>
+            <% else %>
+              <th class="text-center"><%= t('user.birthday') %></th>
+              <td></td>
+            <% end %>
           </tr>
           <tr>
             <th class="text-center"><%= t('user.email') %></th>

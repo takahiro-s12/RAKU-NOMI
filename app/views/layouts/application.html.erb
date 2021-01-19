@@ -41,18 +41,28 @@
               <span></span>
             </a>
           </div>
-
         </div>
       </header>
     <% else %>
       <header>
         <div class="header-content">
           <%= link_to image_tag("img_logo.png", class: "logo"), root_path %>
-          <ul>
-            <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'btn btn-nav' %></li>
-            <li><%= link_to '新規登録', new_user_registration_path, class: 'btn btn-nav' %></li>
-            <li><%= link_to 'ログイン', new_user_session_path, class: 'btn btn-nav' %></li>
-          </ul>
+          <div id="sp-menu">
+            <h2 class="menu-title">メニュー</h2>
+            <ul>
+              <li><%= link_to 'RAKU NOMIの使い方', home_about_path, class: 'btn btn-nav' %></li>
+              <li><%= link_to '新規登録', new_user_registration_path, class: 'btn btn-nav' %></li>
+              <li><%= link_to 'ログイン', new_user_session_path, class: 'btn btn-nav' %></li>
+            </ul>
+          </div>
+          <!---ハンバーガーメニューicon-->
+          <div id="hm-icon">
+            <a class="menu-trigger" href="#">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
         </div>
       </header>
     <% end %>

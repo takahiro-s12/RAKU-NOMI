@@ -3,6 +3,9 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :users, through: :answers
 
+  validates :title, presence: true
+  validates :first_candidate, presence: true
+
   def create_notification_question!(current_user)
     group.users.each do |user|
       notification = current_user.active_notifications.new(

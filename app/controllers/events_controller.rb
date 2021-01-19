@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @event = Event.new
     @group = Group.find(params[:group_id])
@@ -15,7 +17,7 @@ class EventsController < ApplicationController
       @event.create_notification_new_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)
     else
-      render new_group_event_path(@group)
+      render :new
     end
   end
 
@@ -36,7 +38,7 @@ class EventsController < ApplicationController
       @event.create_notification_edit_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)
     else
-      render edit_group_event_path(@group, @event)
+      render :edit
     end
   end
 

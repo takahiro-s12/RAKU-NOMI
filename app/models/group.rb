@@ -5,6 +5,8 @@ class Group < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :questions, dependent: :destroy
 
+  validates :name, presence: true
+
   def create_notification_add_user!(current_user)
     @group_users = GroupUser.last(1)
     @group_users.each do |group_user|

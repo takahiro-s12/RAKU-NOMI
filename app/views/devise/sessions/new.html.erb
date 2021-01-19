@@ -1,8 +1,9 @@
 <div class="main-body">
   <h1 class="body-title text-center mt-5"><%= t'.sign_in' %></h1>
+  
   <%= form_with model: @user, url: user_session_path, local: true do |f| %>
     <div class="container">
-      <!--エラー文入れる-->
+      
       <div class="field row mt-5 pt-sm-5">
         <%= f.label :email, class: "col-sm-4 text-right" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-4" %>
