@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ .top-main-body {
+  padding-top: 80px;
+  width: 100%;
+  background: linear-gradient(#FFCD28,#FFA500);
+ }
+
  .main-body {
   padding-top: 80px;
   width: 100%;
@@ -155,6 +161,34 @@
   transform: translateY(0);
  }
 
+ .about-body {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+ }
+
+ .about-body .card {
+  width: 48%;
+  height: 400px;
+  margin-left: 2%;
+  margin-top: 20px;
+  border: solid 6px #000;
+ }
+
+ .about-image {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  border: solid 1px #000;
+ }
+
+ .card-title {
+  text-align: center;
+  padding-top: 20px;
+ }
+
  @media screen and (min-width: 425px) and (max-width: 1000px) {
   .top-button .top-button-new,
   .top-button .top-button-log {
@@ -205,6 +239,12 @@
 
   .explanation-finish .animation {
    font-size: 20px;
+  }
+
+  .about-body .card {
+   width: 90%;
+   margin: 20px auto;
+   height: 250px;
   }
 
  }

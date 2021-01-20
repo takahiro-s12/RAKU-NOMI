@@ -30,15 +30,18 @@
 
  html {
   width: 100%;
+  height: 100%;
  }
 
  body {
   width: 100%;
   font-family: 'Yusei Magic', sans-serif;
+  height: 100%;
  }
 
  main {
   width: 100%;
+  height: 100%;
  }
 
  .btn-content {
@@ -75,6 +78,7 @@ footer {
   outline: none !important;
 }
 
+.main-body-full .page-title,
 .main-body .page-title {
  background-color: #FFA500;
  padding-top: 1.5rem;
@@ -156,3 +160,13 @@ ul {
  bottom: 1px;
 }
 
+.fa-hand-point-left {
+ font-size: 30px;
+}
+
+@media screen and (max-width: 425px) {
+
+ .fa-hand-point-left {
+  font-size: 20px;
+ }
+}

@@ -1,6 +1,8 @@
-<div class="main-body">
+<div class="main-body-full">
   <div class="page-title">
-    <%= link_to @event.name + "ページに戻る", group_event_path(@event.group, @event), class: 'page-back btn btn-content' %>
+    <%= link_to group_event_path(@event.group, @event), class: 'page-back btn btn-content' do %>
+      <i class="far fa-hand-point-left"></i>
+    <% end %>
     <h2 class="mb-0">飲み会編集</h2>
   </div>
 

@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main-body-full {
+  padding-top: 80px;
+  width: 100%;
+  background: linear-gradient(#FFCD28,#FFA500);
+  height: 97%;
+}
+
+.user-profile {
+  padding-bottom: 100px;
+}
 
 #profile-image {
   width: 100px;
@@ -37,10 +47,23 @@
    border: solid 1px #000;
  }
 
+ .responsive-user{
+   display: none;
+ }
+
+@media screen and (min-width: 899px) and (max-width: 1024px){
+  .main-body-full {
+   height: 130vh;
+ }
+}
+
 @media screen and (min-width: 426px) and (max-width: 900px){
   .member-table,
   .responsive-member{
    display: none;
+ }
+ .main-body-full {
+   height: 170vh;
  }
 
  .responsive-width {
@@ -59,9 +82,19 @@
     height: 350px;
   }
 
+  .follower-table,
   .member-table,
   .responsive-member{
    display: none;
  }
+
+ .main-body-full {
+   height: 170vh;
+ }
+
+ .responsive-user {
+   display: inline-block;
+ }
+
 
 }

@@ -24,9 +24,11 @@ class QuestionsController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @questions = Question.where(group_id: @group.id).order("created_at DESC")
+    @questions = @questions.page(params[:page]).per(10)
   end
 
   def show
+    @group = Group.find(params[:group_id])
     @question = Question.find(params[:id])
     @answers = Answer.where(question_id: @question.id)
     @answers1 = Answer.where(question_id: @question.id, first_candidate: "true")

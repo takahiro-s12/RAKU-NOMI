@@ -57,7 +57,7 @@
             <%= link_to "編集する", edit_user_path(@user), class: 'btn btn-content mb-4' %>
           </div>
         <% else %>
-          <div class="text-center">
+          <div class="text-center user-profile">
             <% if current_user.following?(@user) %>
               <%= link_to 'フォローを外す', unfollow_path(@user.id), method: :delete, class: 'btn btn-content mb-4' %>
             <% else %>
@@ -116,7 +116,8 @@
             <% current_user.following_user.each do |user| %>
               <tbody class="border border-dark">
                 <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-                <td class="align-middle text-center"><%= user.nickname %></td>
+                <td class="align-middle text-center responsive-user"><%= link_to user.nickname, user_path(user) %></td>
+                <td class="align-middle text-center responsive-member"><%= user.nickname %></td>
                 <td class="align-middle text-center responsive-member"><%= user.birthday %></td>
                 <td class="align-middle text-center responsive-member"><%= user.favorite_food %></td>
                 <td class="align-middle text-center responsive-member"><%= user.favorite_drink %></td>

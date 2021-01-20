@@ -1,22 +1,22 @@
 <p>〜今後の飲み会予定〜</p>
-<div class='mx-auto bg-white main-table' style='width: 50%; height: 25rem;' id="event_paginate">
+<div class='mx-auto bg-white group-main-table' id="event_paginate">
   <table class='table table-borderless' style='width: 100%;'>
     <thead>
       <tr>
-        <th style='width: 25%;'>日程</th>
-        <th style='width: 25%;'>飲み会名</th>
-        <th style='width: 25%;'>開始時間</th>
-        <th style='width: 25%;'>終了時間</th>
+        <th class="responsive-font" style='width: 25%;'>日程</th>
+        <th class="responsive-font" style='width: 25%;'>飲み会名</th>
+        <th class="responsive-font" style='width: 25%;'>開始時間</th>
+        <th class="responsive-font" style='width: 25%;'>終了時間</th>
       </tr>
     </thead>
     <% events.each do |event| %>
       <tbody>
         <tr class="border-top border-secondary">
-          <td><%= l event.date %></td>
-          <td><%= link_to event.name, group_event_path(group, event.id) %></td>
+          <td class="responsive-font"><%= l event.date %></td>
+          <td class="responsive-font"><%= link_to event.name, group_event_path(group, event.id) %></td>
           <% if event.start_time.present? & event.finish_time.present? %>
-            <td><%= event.start_time.strftime('%H:%M') %></td>
-            <td><%= event.finish_time.strftime('%H:%M') %></td>
+            <td class="responsive-font"><%= event.start_time.strftime('%H:%M') %></td>
+            <td class="responsive-font"><%= event.finish_time.strftime('%H:%M') %></td>
           <% else %>
             <td></td>
             <td></td>
