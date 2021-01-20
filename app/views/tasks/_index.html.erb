@@ -1,9 +1,9 @@
-<div class="border-top border-dark pt-3">
-  <table class="table table-borderless mx-auto text-center" style="width: 60%;">
+<div class="border-top border-dark pt-3 task-paginate">
+  <table class="table table-borderless task-table">
     <thead>
       <tr>
-        <th width="20%">期限</th>
-        <th width="50%">Task</th>
+        <th width="20%" class="task-responsive-font">期限</th>
+        <th width="50%" class="task-responsive-font">Task</th>
         <th width="15%"></th>
         <th width="15%"></th>
       </tr>
@@ -11,14 +11,14 @@
     <% tasks.each do |task| %>
       <tbody>
         <tr>
-          <td><%= l task.limit_date %></td>
-          <td><%= task.task %></td>
+          <td class="task-responsive-font"><%= l task.limit_date %></td>
+          <td class="task-responsive-font"><%= task.task %></td>
           <% if task.status == false %>
-            <td><%= link_to "完了", user_task_path(task.user, task), method: :patch, class: 'btn btn-content' %></td>
+            <td class="task-responsive-font"><%= link_to "完了", user_task_path(task.user, task), method: :patch, class: 'btn btn-content' %></td>
           <% else %>
-            <td><i class="far fa-check-circle"></i></td>
+            <td class="task-responsive-font"><i class="far fa-check-circle"></i></td>
           <% end %>
-          <td><%= link_to "削除", "/users/#{task.user.id}/tasks/#{task.id}", method: :delete, class: 'btn btn-content' %></td>
+          <td class="task-responsive-font"><%= link_to "削除", "/users/#{task.user.id}/tasks/#{task.id}", method: :delete, class: 'btn btn-content' %></td>
         </tr>
       </tbody>
     <% end %>

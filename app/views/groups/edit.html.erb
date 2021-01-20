@@ -1,6 +1,8 @@
-<div class="main-body">
+<div class="main-body-full">
   <div class="page-title">
-    <%= link_to @group.name + "ページに戻る", group_path(@group), class: 'page-back btn btn-content' %>
+    <%= link_to group_path(@group), class: 'page-back btn btn-content' do %>
+      <i class="far fa-hand-point-left"></i>
+    <% end %>
     <h2 class="mb-0">グループ編集</h2>
   </div>
   <!---エラー文-->

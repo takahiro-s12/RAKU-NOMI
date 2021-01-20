@@ -1,36 +1,44 @@
-<div class="main-body">
+<div class="main-body-full">
   <% if @users.present? %>
     <% @users.each do |user| %>
       <h3 class="page-title"><%= user.family_name %><%= user.first_name %>さんのプロフィール</h3>
-      <div class="container mb-5">
+      <div class="container pb-5">
         <div class="row">
           <div class="col-sm-5 mt-5 pt-5 text-center">
             <%= attachment_image_tag user, :image, :fill, 120, 120, fallback: 'no-image.png', id: 'edit-profile-image' , class: 'd-block mx-auto'%>
-            <div class="mt-5 pt-5">
-              <% unless user == current_user %>
+            <% unless user == current_user %>
+              <div class="mt-5 pt-5">
                 <% if current_user.following?(user) %>
                   <%= link_to 'フォローを外す',unfollow_path(user.id), method: :post, class: "btn btn-content mr-4" %>
                 <% else %>
                   <%= link_to 'フォローする', follow_path(user.id),method: :post, class: "btn btn-content mr-4" %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           </div>
-          <div class="col-sm-6 offset-1 mt-5 pt-5">
+          <div class="col-sm-6 offset-1 mt-5 pt-5 pb-5">
             <table class="table table-borderless" height="100%">
-              <tr height="25%">
+              <tr height="20%">
                 <td>ニックネーム</td>
                 <td><%= user.nickname %></td>
               </tr>
-              <tr height="25%">
+              <tr height="20%">
+                <td>誕生日</td>
+                <% if user.birthday.present? %>
+                  <td><%= l user.birthday %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+              </tr>
+              <tr height="20%">
                 <td>好きな食べ物</td>
                 <td><%= user.favorite_food %></td>
               </tr>
-              <tr height="25%">
+              <tr height="20%">
                 <td>好きな飲み物</td>
                 <td><%= user.favorite_drink %></td>
               </tr>
-              <tr height="25%">
+              <tr height="20%">
                 <td>嫌いな食べ物</td>
                 <td><%= user.hated_food %></td>
               </tr>

@@ -1,6 +1,8 @@
-<div class="main-body">
+<div class="main-body-full">
   <div class="page-title">
-    <%= link_to @group.name + "ページに戻る", group_path(@group), class: 'page-back btn btn-content' %>
+    <%= link_to group_path(@group), class: 'page-back btn btn-content' do %>
+      <i class="far fa-hand-point-left"></i>
+    <% end %>
     <h2 class="mb-0">アンケート作成</h2>
   </div>
   <!---エラー文-->
@@ -10,7 +12,7 @@
 
   <div class="mt-5 text-center">
     <%= form_with model: @question, url: "/groups/#{@group.id}/questions", method: :post, local: true do |f| %>
-      <div style="width:50%;" class="mx-auto">
+      <div class="question-table">
         <table class="table table-borderless">
           <tr>
             <td class="text-right"><%= f.label "アンケート内容" %></td>

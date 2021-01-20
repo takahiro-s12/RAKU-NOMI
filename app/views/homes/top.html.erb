@@ -1,13 +1,11 @@
-<div class="test">
-  <div class="main-body">
-    <div class="main-visual">
-      <div class="main-text">
-        <h1 class="top-text">WELCOME<br>TO<br>RAKU NOMI!</h1>
-        <div class="top-button-new"><%= link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-top btn-nav' %></div>
-        <div class="top-button-log"><%= link_to t('.sign_in'), new_user_session_path, class: 'btn btn-top btn-nav' %></div>
-      </div>
-      <%= image_tag("main_img.jpg", class: "main-image") %>
+<div class="top-main-body">
+  <div class="main-visual">
+    <div class="main-text">
+      <h1 class="top-text">WELCOME<br>TO<br>RAKU NOMI!</h1>
+      <div class="top-button"><%= link_to t('.sign_up'), new_user_registration_path, class: 'btn top-button-new' %></div>
+      <div class="top-button"><%= link_to t('.sign_in'), new_user_session_path, class: 'btn top-button-log' %></div>
     </div>
+    <%= image_tag("main_img.jpg", class: "main-image") %>
   </div>
 </div>
 <div class="explanation-title">

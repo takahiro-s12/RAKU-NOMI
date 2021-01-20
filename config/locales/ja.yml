@@ -36,6 +36,9 @@ ja:
         cost: "費用"
         site_url: "サイトURL"
         comment: "備考"
+      question:
+        title: "アンケート内容"
+        first_candidate: "候補日１"
   date:
     abbr_day_names:
     - 日

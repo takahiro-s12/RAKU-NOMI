@@ -1,20 +1,20 @@
 <table class="table table-borderless mb-0">
   <thead>
     <tr>
-      <th class="text-center">日程</th>
-      <th class="text-center">グループ名</th>
-      <th class="text-center">飲み会名</th>
-      <th class="text-center">開始時間</th>
+      <th class="text-center responsive-font">日程</th>
+      <th class="text-center responsive-font">グループ名</th>
+      <th class="text-center responsive-font">飲み会名</th>
+      <th class="text-center responsive-font">開始時間</th>
     </tr>
   </thead>
   <% events.each do |event| %>
     <tboby>
       <tr class="border-top border-secondary">
-        <td class="text-center"><%= l event.date %></td>
-        <td class="text-center"><%= event.group.name %></td>
-        <td class="text-center"><%= link_to event.name, group_event_path(event.group_id, event) %></td>
+        <td class="text-center responsive-font"><%= l event.date %></td>
+        <td class="text-center responsive-font"><%= event.group.name %></td>
+        <td class="text-center responsive-font"><%= link_to event.name, group_event_path(event.group_id, event) %></td>
         <% if event.start_time.present? %>
-          <td class="text-center"><%= event.start_time.strftime('%H:%M') %></td>
+          <td class="text-center responsive-font"><%= event.start_time.strftime('%H:%M') %></td>
         <% else %>
           <td></td>
         <% end %>

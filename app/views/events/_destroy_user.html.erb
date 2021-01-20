@@ -1,7 +1,7 @@
 <p>〜参加メンバー〜</p>
   <div class="mx-auto border border-dark" style="width: 70%;">
     <table class="table table-borderless mb-0">
-      <thead class="thead-light">
+      <thead class="thead-light responsive-member">
         <tr class="border-bottom border-dark">
           <th></th>
           <th>名前</th>
@@ -15,10 +15,11 @@
         <tbody>
           <tr class="border-top border-dark">
             <td><%= attachment_image_tag event_user.user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-            <td class="align-middle"><%= event_user.user.nickname %></td>
-            <td class="align-middle"><%= event_user.user.favorite_food %></td>
-            <td class="align-middle"><%= event_user.user.favorite_drink %></td>
-            <td class="align-middle"><%= event_user.user.hated_food %></td>
+            <td class="align-middle text-center responsive-user"><%= link_to event_user.user.nickname, user_path(event_user.user) %></td>
+            <td class="align-middle responsive-member"><%= event_user.user.nickname %></td>
+            <td class="align-middle responsive-member"><%= event_user.user.favorite_food %></td>
+            <td class="align-middle responsive-member"><%= event_user.user.favorite_drink %></td>
+            <td class="align-middle responsive-member"><%= event_user.user.hated_food %></td>
             <td class="align-middle" width="14%"><%= link_to "不参加", group_event_event_user_path(group, event, event_user), method: :delete, remote: true, class: 'btn btn-content' %></td>
           </tr>
         </tbody>

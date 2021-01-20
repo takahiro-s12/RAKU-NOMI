@@ -1,9 +1,9 @@
 <% if resource.errors.any? %>
   <div class="alart-warning" id="alart">
     <ul style="color: red;">
-      <p style="color: red;">エラーが発生しました</p>
+      <p style="color: red;" class="text-center">エラーが発生しました</p>
       <% resource.errors.full_messages.each do |massage| %>
-        <li><%= massage %></li>
+        <li class="text-center"><%= massage %></li>
       <% end %>
     </ul>
   </div>
