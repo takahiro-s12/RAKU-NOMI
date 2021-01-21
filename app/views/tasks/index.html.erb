@@ -1,4 +1,4 @@
-<div class="main-body pb-5">
+<div class="main-body-full pb-5">
   <h2 class="page-title">ToDoリスト</h2>
 
   <!---エラー文-->
@@ -8,9 +8,9 @@
 
   <div>
     <%= form_with model: @task, url: "/users/#{current_user.id}/tasks", method: :post, remote: true do |f| %>
-      <div class="text-center mt-5 mb-5">
+      <div class="text-center mt-5 mb-5 event-new">
         <%= f.label :task %>
-        <%= f.text_field :task, class: "mr-5" %>
+        <%= f.text_field :task %>
         <%= f.label "期限" %>
         <%= f.date_field :limit_date %>
         <%= f.submit "作成", class: "btn btn-content" %>

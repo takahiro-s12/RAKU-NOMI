@@ -1,3 +1,4 @@
 $("#task_index").html("<%= j(render 'tasks/index', tasks: @tasks) %>");
+$(".alart").html("<%= j( render 'layouts/error_form', resource: @task) %>");
 $("#task_task").val("");
 $("#task_limit_date").val("");

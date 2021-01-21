@@ -1,6 +1,6 @@
 <div class="main-body">
   <h2 class="page-title"><%= @group.name %></h2>
-  <div class="text-center mt-5 mb-5">
+  <div class="text-center mt-5 mb-5 group-content">
     <%= link_to "編集する", edit_group_path(@group), class: 'btn btn-content' %>
     <%= link_to "飲み会を開く", new_group_event_path(@group), class: 'btn btn-content' %>
     <%= link_to "アンケート作成", new_group_question_path(@group), class: 'btn btn-content' %>

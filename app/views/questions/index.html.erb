@@ -1,29 +1,32 @@
-<div class="main-body">
+<div class="main-body-full">
   <div class="page-title">
-    <%= link_to @group.name + "ページに戻る", group_path(@group), class: 'page-back btn btn-content' %>
+    <%= link_to group_path(@group), class: 'page-back btn btn-content' do %>
+      <i class="far fa-hand-point-left"></i>
+    <% end %>
     <h2 class="mb-0">アンケート一覧</h2>
   </div>
-  <div class="mx-auto text-center" style="width: 50%">
-    <table class="table table-borderless">
+  <div class="question-table text-center">
+    <table class="table table-borderless ">
       <thead class="border-bottom border-dark">
         <tr>
-          <th>質問開始日</th>
-          <th>アンケート内容</th>
+          <th class="question-responsive-font">質問開始日</th>
+          <th class="question-responsive-font">アンケート内容</th>
         </tr>
       </thead>
       <% @questions.each do |question| %>
         <% @answer = Answer.find_by(user_id: current_user.id, question_id: question.id) %>
         <tbody>
           <tr>
-            <td><%= question.created_at.strftime('%m/%d') %></td>
+            <td class="question-responsive-font"><%= question.created_at.strftime('%m/%d') %></td>
             <% if @answer.status == false %>
-              <td><%= link_to question.title , edit_group_question_answer_path(question.group_id, question.id, @answer) %></td>
+              <td class="question-responsive-font"><%= link_to question.title , edit_group_question_answer_path(question.group_id, question.id, @answer) %></td>
             <% else %>
-              <td><%= link_to question.title , group_question_path(question.group_id, question.id) %></td>
+              <td class="question-responsive-font"><%= link_to question.title , group_question_path(question.group_id, question.id) %></td>
             <% end %>
           </tr>
         </tbody>
       <% end %>
     </table>
+    <%= paginate @questions %>
   </div>
 </div>

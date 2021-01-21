@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     @event.group_id = @group.id
     @event.user_id = current_user.id
     @users = @group.users
+
     if @event.save
       @event.create_notification_new_event!(current_user)
       redirect_to group_event_path(@group.id, @event.id)

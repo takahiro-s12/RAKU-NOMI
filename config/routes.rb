@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/home/about' => 'homes#about'
   post '/follow/:id' => 'relationships#follow', as: 'follow'
-  post '/unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+  delete '/unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   get "/users/search" => 'users#search'
   resources :users, only: [:show, :edit, :update] do
     get "/followed" => 'users#followed', as: 'follower'

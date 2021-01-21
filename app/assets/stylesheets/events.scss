@@ -1,3 +1,27 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show-event-table {
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+
+  .event-new {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .event-new label,
+  .event-new input{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+
+  div .show-event-table {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

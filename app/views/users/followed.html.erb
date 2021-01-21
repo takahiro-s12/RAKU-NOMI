@@ -1,8 +1,8 @@
-<div class="main-body">
-  <h2 class="page-title">フォロワー</h2>
+<div class="main-body-full">
+  <h2 class="page-title">友達かも？</h2>
   <div class="mx-auto text-center" style="width:80%;">
     <table class="table table-borderless">
-      <thead>
+      <thead class="follower-table">
         <tr>
           <th></th>
           <th>名前</th>
@@ -19,10 +19,14 @@
             <tr>
               <td><%= attachment_image_tag user, :image, :fill, 100, 100, fallback: 'no-image.png', id: 'member-image' %></td>
               <td><%= user.nickname %></td>
-              <td><%= user.birthday %></td>
-              <td><%= user.favorite_food %></td>
-              <td><%= user.favorite_drink %></td>
-              <td><%= user.hated_food %></td>
+              <% if user.birthday.present? %>
+                <td class="responsive-member"><%= l user.birthday %></td>
+              <% else %>
+                <td class="responsive-member"></td>
+              <% end %>
+              <td class="responsive-member"><%= user.favorite_food %></td>
+              <td class="responsive-member"><%= user.favorite_drink %></td>
+              <td class="responsive-member"><%= user.hated_food %></td>
               <td><%= link_to "フォローする", follow_path(user.id), method: :post, class: 'btn btn-content' %></td>
             </tr>
           </tbody>

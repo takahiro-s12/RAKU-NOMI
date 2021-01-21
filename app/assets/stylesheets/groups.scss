@@ -1,3 +1,27 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.group-main-table {
+  width: 50%;
+  height: 25rem;
+  border-radius: 240px 15px 100px 15px/ 15px 200px 15px 185px;
+  padding: 2%;
+  border: 6px solid #333;
+  background: #FFF;
+}
+
+@media screen and (max-width: 425px) {
+  .group-main-table {
+    width: 80%;
+  }
+
+  .group-content a {
+   display: block;
+   width: 50%;
+   margin: 0 auto;
+   margin-top: 10px;
+ }
+
+}

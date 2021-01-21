@@ -1,112 +1,137 @@
 <div class="main-body">
-  <h2 class="page-title">マイページ</h2>
-  <% if @answers.present? %>
+  <% if @user.id == current_user.id %>
+    <h2 class="page-title">マイページ</h2>
+  <% else %>
+    <h2 class="page-title"><%= @user.nickname %>さんの詳細ページ</h2>
+  <% end %>
+  <% if @answers.present? && @user.id == current_user.id %>
     <P class="color-red text-center">未回答のアンケートが<%= @answers.count %>件あります</p>
   <% end %>
   <div class="container pt-2 mt-4">
     <div class="row">
       <div class="col-lg-5">
-        <%= attachment_image_tag current_user, :image, :fill, 120, 120, fallback: 'no-image.png', id: 'profile-image', class: 'd-block mx-auto' %>
+        <%= attachment_image_tag @user, :image, :fill, 120, 120, fallback: 'no-image.png', id: 'profile-image', class: 'd-block mx-auto' %>
         <table class="table table-borderless">
           <tr>
             <th class="text-center"><%= t('user.name') %></th>
-            <td class="text-center"><%= current_user.family_name %><%= current_user.first_name %></td>
+            <td class="text-center"><%= @user.family_name %><%= current_user.first_name %></td>
           </tr>
           <tr>
             <th class="text-center"><%= t('user.nickname') %></th>
-            <td class="text-center"><%= current_user.nickname %></td>
+            <td class="text-center"><%= @user.nickname %></td>
           </tr>
           <tr>
-            <% if current_user.birthday.present? %>
+            <% if @user.birthday.present? %>
               <th class="text-center"><%= t('user.birthday') %></th>
-              <td class="text-center"><%= l current_user.birthday %></td>
+              <td class="text-center"><%= l @user.birthday %></td>
             <% else %>
               <th class="text-center"><%= t('user.birthday') %></th>
               <td></td>
             <% end %>
           </tr>
-          <tr>
-            <th class="text-center"><%= t('user.email') %></th>
-            <td class="text-center"><%= current_user.email %></td>
-          </tr>
+          <% if @user.id == current_user.id %>
+            <tr>
+              <th class="text-center"><%= t('user.email') %></th>
+              <td class="text-center"><%= @user.email %></td>
+            </tr>
+          <% end %>
           <tr>
             <th class="text-center"><%= t('user.favorite_food') %></th>
-            <td class="text-center"><%= current_user.favorite_food %></td>
+            <td class="text-center"><%= @user.favorite_food %></td>
           </tr>
           <tr>
             <th class="text-center"><%= t('user.favorite_drink') %></th>
-            <td class="text-center"><%= current_user.favorite_drink %></td>
+            <td class="text-center"><%= @user.favorite_drink %></td>
           </tr>
           <tr>
             <th class="text-center"><%= t('user.hated_food') %></th>
-            <td class="text-center"><%= current_user.hated_food %></td>
+            <td class="text-center"><%= @user.hated_food %></td>
           </tr>
           <tr>
             <th class="text-center">ID</th>
-            <td class="text-center"><%= current_user.public_uid %></td>
+            <td class="text-center"><%= @user.public_uid %></td>
           </tr>
         </table>
-        <div class="text-center">
-          <%= link_to "編集する", edit_user_path, class: 'btn btn-content mb-sm-4' %>
-        </div>
-      </div>
-      <div class="col-lg-7">
-          <p class="text-center">〜今後の飲み会予定〜</p>
-          <div style="width: 100%; height: 440px;", class="bg-white main-table", id="event_paginate">
-            <%= render 'users/index', events: @events %>
-          </div>
+        <% if @user.id == current_user.id %>
           <div class="text-center">
-            <%= link_to "グループを作る", new_group_path, class: 'btn btn-content mt-3  mb-sm-4' %>
+            <%= link_to "編集する", edit_user_path(@user), class: 'btn btn-content mb-4' %>
           </div>
+        <% else %>
+          <div class="text-center user-profile">
+            <% if current_user.following?(@user) %>
+              <%= link_to 'フォローを外す', unfollow_path(@user.id), method: :delete, class: 'btn btn-content mb-4' %>
+            <% else %>
+              <%= link_to 'フォローをする', follow_path(@user.id), method: :post, class: 'btn btn-content mb-4' %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-    </div>
-  </div>
-</div>
-<div class="container mt-5 pb-5">
-  <div class="row">
-    <table class="table table-borderless col-lg-2 border border-dark">
-      <thead class="border-bottom border-dark">
-        <tr>
-          <th class="text-center group-color">参加グループ一覧</th>
-        </tr>
-      </thead>
-      <% @groups.each do |group| %>
-        <tbody>
-          <tr>
-            <td class="text-center pt-3"><%= link_to group.name, group_path(group) %></td>
-          </tr>
-        </tboby>
+      <% if @user.id == current_user.id %>
+        <div class="col-lg-7">
+            <p class="text-center">〜今後の飲み会予定〜</p>
+            <div class="main-table", id="event_paginate">
+              <%= render 'users/index', events: @events %>
+            </div>
+            <div class="text-center">
+              <%= link_to "グループを作る", new_group_path, class: 'btn btn-content mt-3  mb-4' %>
+            </div>
+        </div>
       <% end %>
-    </table>
-    <div class="col-lg-10">
-      <div class="member-list">
-        <p class="text-center">〜メンバーリスト〜</p>
-        <p class="follower-list"><%= link_to "友達かも？", user_follower_path(current_user) %></p>
-      </div>
-      <table class="table table-borderless">
-        <tr>
-          <thead class="border-bottom border-dark thead-light border border-dark">
-            <th></th>
-            <th class="text-center">ニックネーム</th>
-            <th class="text-center">誕生日</th>
-            <th class="text-center">好きな食べ物</th>
-            <th class="text-center">好きな飲み物</th>
-            <th class="text-center">嫌いな食べ物</th>
-            <th></th>
-          </thead>
-          <% current_user.following_user.each do |user| %>
-            <tbody class="border border-dark">
-              <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-              <td class="align-middle text-center"><%= user.nickname %></td>
-              <td class="align-middle text-center"><%= user.birthday %></td>
-              <td class="align-middle text-center"><%= user.favorite_food %></td>
-              <td class="align-middle text-center"><%= user.favorite_drink %></td>
-              <td class="align-middle text-center"><%= user.hated_food %></td>
-              <td class="align-middle text-center"><%= link_to 'フォローを外す', unfollow_path(user.id), method: :post, class: 'btn btn-content' %></td>
-            </tbody>
-          <% end %>
-        </tr>
-      </table>
     </div>
   </div>
 </div>
+<% if @user.id == current_user.id %>
+  <div class="container mt-5 pb-5">
+    <div class="row">
+      <table class="table table-borderless col-lg-2 border border-dark">
+        <thead class="border-bottom border-dark">
+          <tr>
+            <th class="text-center group-color">参加グループ一覧</th>
+          </tr>
+        </thead>
+        <% @groups.each do |group| %>
+          <tbody>
+            <tr>
+              <td class="text-center responsive-font pt-3"><%= link_to group.name, group_path(group) %></td>
+            </tr>
+          </tboby>
+        <% end %>
+      </table>
+      <div class="col-lg-10">
+        <div class="member-list">
+          <p class="text-center">〜フォローリスト〜</p>
+          <p class="follower-list"><%= link_to "友達かも？", user_follower_path(current_user) %></p>
+        </div>
+        <table class="table table-borderless">
+          <tr>
+            <thead class="thead-light member-table">
+              <th></th>
+              <th class="text-center">ニックネーム</th>
+              <th class="text-center">誕生日</th>
+              <th class="text-center">好きな食べ物</th>
+              <th class="text-center">好きな飲み物</th>
+              <th class="text-center">嫌いな食べ物</th>
+              <th></th>
+            </thead>
+            <% current_user.following_user.each do |user| %>
+              <tbody class="border border-dark">
+                <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
+                <td class="align-middle text-center responsive-user"><%= link_to user.nickname, user_path(user) %></td>
+                <td class="align-middle text-center responsive-member"><%= user.nickname %></td>
+                <% if user.birthday.present? %>
+                  <td class="align-middle text-center responsive-member"><%= l user.birthday %></td>
+                <% else %>
+                  <td class="responsive-member"></td>
+                <% end %>
+                <td class="align-middle text-center responsive-member"><%= user.favorite_food %></td>
+                <td class="align-middle text-center responsive-member"><%= user.favorite_drink %></td>
+                <td class="align-middle text-center responsive-member"><%= user.hated_food %></td>
+                <td class="align-middle text-center responsive-width"><%= link_to 'フォローを外す', unfollow_path(user.id), method: :delete, class: 'btn btn-content' %></td>
+              </tbody>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

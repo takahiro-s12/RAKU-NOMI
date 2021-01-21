@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    @user = User.find(params[:id])
     @groups = current_user.groups
     @events = current_user.events.where('date >= ?', Date.today).order(date: :asc)
     @events = @events.page(params[:page]).per(6)

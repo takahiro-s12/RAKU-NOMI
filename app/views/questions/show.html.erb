@@ -1,6 +1,11 @@
-<div class="main-body">
-  <h2 class="page-title">アンケート結果</h2>
-  <div class="mx-auto text-center mt-5" style="width: 50%;">
+<div class="main-body-full">
+  <div class="page-title">
+    <%= link_to group_path(@group), class: 'page-back btn btn-content' do %>
+      <i class="far fa-hand-point-left"></i>
+    <% end %>
+    <h2 class="mb-0">アンケート結果</h2>
+  </div>
+  <div class="text-center mt-5 question-table">
     <table class="table table-borderless">
       <tr>
         <td>候補日1</td>
@@ -23,21 +28,21 @@
       <% end %>
     </table>
   </div>
-  <div class="mx-auto text-center bg-white mt-5" style="width: 70%;">
+  <div class="text-center bg-white mt-5 answer-question-table">
     <table class="table table-borderless border border-dark">
       <thead class="border-bottom border-dark thead-light">
         <tr>
-          <th>名前</th>
-          <th>候補日1</th>
-          <th>候補日2</th>
-          <th>候補日3</th>
+          <th class="question-responsive-font">名前</th>
+          <th class="question-responsive-font">候補日1</th>
+          <th class="question-responsive-font">候補日2</th>
+          <th class="question-responsive-font">候補日3</th>
           <th></th>
         </tr>
       </thead>
       <% @done_answers.each do |answer| %>
         <tbody class="border-bottom border-dark">
           <tr>
-            <td><%= answer.user.nickname %></td>
+            <td class="question-responsive-font"><%= answer.user.nickname %></td>
             <% if answer.first_candidate == true %>
               <td>◯</td>
             <% else %>
@@ -54,7 +59,7 @@
               <td>×</td>
             <% end %>
             <% if answer.user_id == current_user.id %>
-              <td><%= link_to "変更する", edit_group_question_answer_path(@question.group_id, @question, answer) %></td>
+              <td class="question-responsive-font"><%= link_to "変更する", edit_group_question_answer_path(@question.group_id, @question, answer) %></td>
             <% else %>
               <td></td>
             <% end %>

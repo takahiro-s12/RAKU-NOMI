@@ -1,3 +1,29 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div .task-table {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  .task-responsive-font {
+    font-size: 10px;
+  }
+
+  .task-responsive-font .btn {
+    font-size: 10px;
+    margin-left: 0;
+    padding: 1px 2px;
+  }
+
+  div .task-table {
+    width: 90%;
+  }
+
+  .task-paginate .pagination {
+    bottom: -10%;
+  }
+}

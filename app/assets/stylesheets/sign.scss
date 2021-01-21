@@ -1,0 +1,31 @@
+
+.field label,
+.field .pass{
+  text-align: right;
+}
+.actions .btn-new {
+  width: 15%;
+  height: 60px;
+  font-size: 180%;
+}
+
+
+@media screen and (max-width: 425px) {
+
+  .field label,
+  .field .pass {
+    text-align: center;
+  }
+
+  .container .field {
+    justify-content: center;
+  }
+
+  .field .sign_form {
+    width: 280px;
+  }
+
+  .actions .btn-new {
+    width: 35%;
+  }
+}
