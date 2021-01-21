@@ -5,6 +5,7 @@
         <tr class="border-bottom border-dark">
           <th></th>
           <th>名前</th>
+          <th>誕生日</th>
           <th>好きな食べ物</th>
           <th>好きな飲み物</th>
           <th>嫌いな食べ物</th>
@@ -16,6 +17,11 @@
           <tr class="border-top border-dark">
             <td><%= attachment_image_tag event_user.user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
             <td class="align-middle text-center responsive-user"><%= link_to event_user.user.nickname, user_path(event_user.user) %></td>
+            <% if event_user.user.birthday.present? %>
+              <td class="align-middle responsive-member"><%= l event_user.user.birthday %></td>
+            <% else %>
+              <td class="responsive-member"></td>
+            <% end %>
             <td class="align-middle responsive-member"><%= event_user.user.nickname %></td>
             <td class="align-middle responsive-member"><%= event_user.user.favorite_food %></td>
             <td class="align-middle responsive-member"><%= event_user.user.favorite_drink %></td>

@@ -99,7 +99,7 @@
       </table>
       <div class="col-lg-10">
         <div class="member-list">
-          <p class="text-center">〜メンバーリスト〜</p>
+          <p class="text-center">〜フォローリスト〜</p>
           <p class="follower-list"><%= link_to "友達かも？", user_follower_path(current_user) %></p>
         </div>
         <table class="table table-borderless">
@@ -118,7 +118,11 @@
                 <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
                 <td class="align-middle text-center responsive-user"><%= link_to user.nickname, user_path(user) %></td>
                 <td class="align-middle text-center responsive-member"><%= user.nickname %></td>
-                <td class="align-middle text-center responsive-member"><%= user.birthday %></td>
+                <% if user.birthday.present? %>
+                  <td class="align-middle text-center responsive-member"><%= l user.birthday %></td>
+                <% else %>
+                  <td class="responsive-member"></td>
+                <% end %>
                 <td class="align-middle text-center responsive-member"><%= user.favorite_food %></td>
                 <td class="align-middle text-center responsive-member"><%= user.favorite_drink %></td>
                 <td class="align-middle text-center responsive-member"><%= user.hated_food %></td>

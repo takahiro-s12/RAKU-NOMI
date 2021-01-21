@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :users, through: :event_users
   has_many :notifications, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 10 }
   validates :date, presence: true
 
   def create_notification_new_event!(current_user)

@@ -23,8 +23,11 @@ class User < ApplicationRecord
 
   validates :family_name, presence: true
   validates :first_name, presence: true
-  validates :nickname, presence: true
+  validates :nickname, presence: true, length: { in: 1..10 }
   validates :email, presence: true
+  validates :favorite_food, length: { maximum: 10 }
+  validates :favorite_drink, length: { maximum: 10 }
+  validates :hated_food, length: { maximum: 10 }
 
 
   generate_public_uid

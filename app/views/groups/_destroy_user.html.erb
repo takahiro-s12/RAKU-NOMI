@@ -4,16 +4,22 @@
     <thead class="thead-light responsive-member">
       <th style="width: 10%;"></th>
       <th>ニックネーム</th>
+      <th>誕生日</th>
       <th>好きな食べ物</th>
       <th>好きな飲み物</th>
       <th>嫌いな食べ物</th>
-      <th style="width: 15%"></th>
+      <th style="width: 8%"></th>
     </thead>
     <% group.users.each do |user| %>
     <tbody>
       <td><%= attachment_image_tag user, :image, :fill, 60, 60, fallback: 'no-image.png', id: 'member-image' %></td>
-      <td class="align-middle text-center responsive-user"><%= link_to user.nickname, user_path(user) %></td>
+      <td class="align-middle responsive-user"><%= link_to user.nickname, user_path(user) %></td>
       <td class="align-middle responsive-member"><%= user.nickname %></td>
+      <% if user.birthday.present? %>
+        <td class="align-middle responsive-member"><%= l user.birthday %></td>
+      <% else %>
+        <td class="responsive-member"></td>
+      <% end %>
       <td class="align-middle responsive-member"><%= user.favorite_food %></td>
       <td class="align-middle responsive-member"><%= user.favorite_drink %></td>
       <td class="align-middle responsive-member"><%= user.hated_food %></td>
