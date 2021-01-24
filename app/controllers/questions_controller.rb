@@ -44,8 +44,6 @@ class QuestionsController < ApplicationController
                                      :first_candidate,
                                      :second_candidate,
                                      :final_candidate,
-                                     user_ids: []
-                                    )
+                                     user_ids: [])
   end
-
 end
