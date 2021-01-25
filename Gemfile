@@ -62,20 +62,18 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
 
-# 画像投稿用
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
-# 画像加工用（サイズ調整など）
 gem 'refile-mini_magick'
-# ロウグイン認証
 gem 'devise'
-# ランダムid付与
 gem 'public_uid'
-# レイアウト
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'

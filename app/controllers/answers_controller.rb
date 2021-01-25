@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def edit
     @answer = Answer.find(params[:id])
     @question = Question.find(params[:question_id])

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :show, :edit, :update] do
     resources :group_users, only: [:create, :destroy]
     resources :questions, only: [:new, :create, :index, :show] do
-      resources :answers,only: [:edit, :update]
+      resources :answers, only: [:edit, :update]
     end
     get "/events/:id/add_user" => "events#add_user", as: 'add_user_event'
     get "/events/:id/event_mail" => "events#event_mail", as: 'event_mail'
@@ -29,5 +29,4 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-
 end

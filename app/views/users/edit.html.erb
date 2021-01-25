@@ -17,36 +17,36 @@
         <div class="col-lg-7 text-center mt-5 mb-5">
           <table class="table table-borderless justify-content-center">
             <tr>
-              <td><%= f.label :family_name %></td>
-              <td><%= f.text_field :family_name %></td>
+              <td class="block-table"><%= f.label :family_name %></td>
+              <td class="block-table"><%= f.text_field :family_name %></td>
             </tr>
             <tr>
-              <td><%= f.label :first_name %></td>
-              <td><%= f.text_field :first_name %></td>
+              <td class="block-table"><%= f.label :first_name %></td>
+              <td class="block-table"><%= f.text_field :first_name %></td>
             </tr>
             <tr>
-              <td><%= f.label :nickname %></td>
-              <td><%= f.text_field :nickname %></td>
+              <td class="block-table"><%= f.label :nickname %></td>
+              <td class="block-table"><%= f.text_field :nickname %></td>
             </tr>
             <tr>
-              <td><%= f.label :birthday %></td>
-              <td><%= f.date_select( :birthday, start_year: 1930, end_year: (Time.now.year)) %></td>
+              <td class="block-table"><%= f.label :birthday %></td>
+              <td class="block-table"><%= f.date_select( :birthday, start_year: 1930, end_year: (Time.now.year)) %></td>
             </tr>
             <tr>
-              <td><%= f.label :email %></td>
-              <td><%= f.email_field :email %></td>
+              <td class="block-table"><%= f.label :email %></td>
+              <td class="block-table"><%= f.email_field :email %></td>
             </tr>
             <tr>
-              <td><%= f.label :favorite_food %></td>
-              <td><%= f.text_field :favorite_food %></td>
+              <td class="block-table"><%= f.label :favorite_food %></td>
+              <td class="block-table"><%= f.text_field :favorite_food %></td>
             </tr>
             <tr>
-              <td><%= f.label :favorite_drink %></td>
-              <td><%= f.text_field :favorite_drink %></td>
+              <td class="block-table"><%= f.label :favorite_drink %></td>
+              <td class="block-table"><%= f.text_field :favorite_drink %></td>
             </tr>
             <tr>
-              <td><%= f.label :hated_food %></td>
-              <td><%= f.text_field :hated_food %></td>
+              <td class="block-table"><%= f.label :hated_food %></td>
+              <td class="block-table"><%= f.text_field :hated_food %></td>
             </tr>
           </table>
           <%= f.submit class: 'btn btn-content mr-5 mt-4' %>

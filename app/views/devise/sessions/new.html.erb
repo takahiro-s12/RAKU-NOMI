@@ -14,6 +14,12 @@
         <%= f.password_field :password, class: "col-sm-4 sign_form" %>
       </div>
 
+      <div class="test-user">
+        <p>テストユーザー</p>
+        <p>メールアドレス:test@test.co.jp</p>
+        <p>パスワード: test1234</p>
+      </div>
+
       <% if devise_mapping.rememberable? %>
         <div class="field text-center mt-3">
           <%= f.check_box :remember_me %>

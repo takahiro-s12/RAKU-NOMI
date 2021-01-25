@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def edit

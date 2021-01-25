@@ -58,10 +58,7 @@
 }
 
 @media screen and (min-width: 426px) and (max-width: 900px){
-  .member-table,
-  .responsive-member{
-   display: none;
- }
+
  .main-body-full {
    height: 170vh;
  }
@@ -94,6 +91,11 @@
 
  .responsive-user {
    display: inline-block;
+ }
+
+ .block-table {
+   display: block;
+   text-align: center;
  }
 
 
