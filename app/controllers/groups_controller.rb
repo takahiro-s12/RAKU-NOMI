@@ -30,7 +30,6 @@ class GroupsController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def edit

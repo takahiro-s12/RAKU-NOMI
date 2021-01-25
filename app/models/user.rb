@@ -29,7 +29,6 @@ class User < ApplicationRecord
   validates :favorite_drink, length: { maximum: 10 }
   validates :hated_food, length: { maximum: 10 }
 
-
   generate_public_uid
   attachment :image
 
