@@ -3,7 +3,7 @@ FactoryBot.define do
     family_name { "テスト" }
     first_name { "ユーザー" }
     nickname { "テスト" }
-    email { "testtest@testtest" }
+    email { Faker::Internet.free_email }
     birthday { "1994-12-02" }
     favorite_food { "唐揚げ" }
     favorite_drink { "ビール" }
