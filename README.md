@@ -1,4 +1,5 @@
 # RAKU NOMI
+![beer mug 2](https://user-images.githubusercontent.com/72684406/106082037-5290b480-615d-11eb-90e2-b89505b64fd4.png)
 
 ## サイト概要
 飲み会を開きやすくするサポートサイト
