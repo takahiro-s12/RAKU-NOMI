@@ -24,7 +24,7 @@
 - 今後の飲み会予定の確認
 
 ## ER図
-![ER図](https://user-images.githubusercontent.com/72684406/106081683-a8b12800-615c-11eb-82d7-d1d79ce496d1.png)
+![ER図](https://user-images.githubusercontent.com/72684406/106094445-61836100-6175-11eb-8da1-7ec1522f09d4.png)
 
 
 ## 機能一覧
