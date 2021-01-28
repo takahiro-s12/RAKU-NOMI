@@ -17,3 +17,5 @@ AllCops:
   - 'config/spring.rb'
   - 'lib/tasks/*'
   - 'vendor/**/*'
+  - 'app/helpers/notifications_helper.rb'
+  - 'spec/**/*'

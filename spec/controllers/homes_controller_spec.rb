@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe HomesController, type: :controller do
-
   describe '#top' do
     it '正常なレスポンス' do
       get :top
@@ -23,5 +22,4 @@ RSpec.describe HomesController, type: :controller do
       expect(response).to have_http_status '200'
     end
   end
-
 end

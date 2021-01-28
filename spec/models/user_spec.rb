@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  
   describe "バリデーションテスト" do
-    
     it "姓、名、ニックネーム、メールアドレス、パスワードがある場合有効である" do
       user = FactoryBot.build(:user)
       expect(user).to be_valid
@@ -69,7 +67,5 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:hated_food]).to include("は10文字以内で入力してください")
     end
-    
   end
-  
 end
