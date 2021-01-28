@@ -23,7 +23,7 @@
 - 今後の飲み会予定の確認
 
 ## ER図
-![ER図](https://drive.google.com/file/d/1uOdTGVFeHT4TME8CTbTLq3ptV5BSmLkN/view?usp=sharing)
+![ER図](https://user-images.githubusercontent.com/72684406/106081683-a8b12800-615c-11eb-82d7-d1d79ce496d1.png)
 
 
 ## 機能一覧
