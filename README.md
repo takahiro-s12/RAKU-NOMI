@@ -4,7 +4,7 @@
 飲み会を開きやすくするサポートサイト
 
 ### サイトテーマ
-飲み会をラク(楽)に楽しく開けるサイト
+飲み会をラク(楽)に楽しく主催する
 
 ### テーマを選んだ理由
 私は飲み会が好きということあり、今まで幹事という立場を多くやってきました。
@@ -18,14 +18,13 @@
 ### 主な利用シーン
 コミュニティで飲み会を開く際に利用
 
-・飲み会の日程調整
-・飲み会詳細内容の連絡
-・飲み会の記録
+- 飲み会の日程調整
+- 飲み会詳細内容の連絡
+- 今後の飲み会予定の確認
 
-## 設計書
-・[ER図](https://drive.google.com/file/d/1uOdTGVFeHT4TME8CTbTLq3ptV5BSmLkN/view?usp=sharing)
-・[テーブル定義書](https://docs.google.com/spreadsheets/d/1poBIzwfWslCbR9eDg8jA1yChZ94MhKbCuuiBcsHhtbY/edit?usp=sharing)
-・[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1K9ZD2wiAsEIE0_uJgHCIciOIz6-XSMD03FnUAGn-qxI/edit?usp=sharing)
+## ER図
+![ER図](https://drive.google.com/file/d/1uOdTGVFeHT4TME8CTbTLq3ptV5BSmLkN/view?usp=sharing)
+
 
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1sA-AYTRjePb4g2L9rxUX8TkeQZZng8CmP0sZjSjjr-Q/edit?usp=sharing
