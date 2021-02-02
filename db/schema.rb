@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 2021_01_17_131443) do
   create_table "answers", force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
-    t.boolean "first_candidate"
-    t.boolean "scond_candidate"
-    t.boolean "final_candidate"
-    t.boolean "status"
+    t.boolean "first_candidate", default: false
+    t.boolean "second_candidate", default: false
+    t.boolean "final_candidate", default: false
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
