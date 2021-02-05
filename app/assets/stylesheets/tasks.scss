@@ -8,6 +8,14 @@ div .task-table {
   text-align: center;
 }
 
+.task-paginate {
+  position: relative;
+}
+
+.task-paginate .pagination {
+  bottom: -10%;
+}
+
 @media screen and (max-width: 425px) {
   .task-responsive-font {
     font-size: 10px;
@@ -23,7 +31,4 @@ div .task-table {
     width: 90%;
   }
 
-  .task-paginate .pagination {
-    bottom: -10%;
-  }
 }
