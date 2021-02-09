@@ -15,19 +15,19 @@
       <div class="question-table">
         <table class="table table-borderless">
           <tr>
-            <td class="text-right"><%= f.label "アンケート内容" %></td>
+            <td class="text-right"><%= f.label :title %></td>
             <td><%= f.text_field :title %></td>
           </tr>
           <tr>
-            <td class="text-right"><%= f.label "候補日1" %></td>
+            <td class="text-right"><%= f.label :first_candidate %></td>
             <td><%= f.date_field :first_candidate %></td>
           </tr>
           <tr>
-            <td class="text-right"><%= f.label "候補日2" %></td>
+            <td class="text-right"><%= f.label :second_candidate %></td>
             <td><%= f.date_field :second_candidate %></td>
           </tr>
           <tr>
-            <td class="text-right"><%= f.label "候補日3" %></td>
+            <td class="text-right"><%= f.label :final_candidate %></td>
             <td><%= f.date_field :final_candidate %></td>
           </tr>
         </table>

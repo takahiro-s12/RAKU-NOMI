@@ -7,7 +7,7 @@
     <%= render "layouts/error_form", resource: current_user %>
   </div>
 
-  <%= form_with model: current_user, url: "/users/#{current_user.id}", method: :patch, local:true do |f| %>
+  <%= form_with model: @user, url: "/users/#{current_user.id}", method: :patch, local:true do |f| %>
     <div class="container">
       <div class="row">
         <div class="col-lg-5 mt-5 pt-5 text-center">

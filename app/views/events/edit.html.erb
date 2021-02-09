@@ -14,41 +14,41 @@
   <%= form_with model: @event, url: "/groups/#{@event.group_id}/events/#{@event.id}", method: :patch, local: true do |f| %>
     <div class="container">
       <div class="row mt-5 block-table">
-        <%= f.label "飲み会名", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :name, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.text_field :name, class: "col-lg-3 offset-lg-1" %>
       </div>
       <div class="row mt-3 block-table">
-        <%= f.label "日にち", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :date, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.date_field :date, class: "col-lg-3 offset-lg-1" %>
       </div>
       <div class="row mt-3 block-table">
-        <%= f.label "時間", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :time, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.time_field :start_time, class: "offset-lg-1" %>
         <span class="block-table">〜</span>
         <%= f.time_field :finish_time %>
       </div>
       <div class="row mt-3 block-table">
-        <%= f.label "会場", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :venue_name, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.text_field :venue_name, class: "col-lg-3 offset-lg-1" %>
       </div>
       <div class="row mt-3 block-table">
-        <%= f.label "会場住所", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :venue_address, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.text_field :venue_address, class: "col-lg-3 offset-lg-1" %>
       </div>
       <div class="row mt-3 block-table">
-        <%= f.label "サイトURL", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :site_url, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.text_field :site_url, class: "col-lg-3 offset-lg-1" %>
       </div>
       <div class="row mt-3 block-table">
-        <%= f.label "費用", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :cost, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.number_field :cost, class: "col-lg-3 offset-lg-1" %>
       </div>
       <div class="row mt-3 block-table">
-        <%= f.label "備考", class: "col-lg-3 text-center offset-lg-2" %>
+        <%= f.label :comment, class: "col-lg-3 text-center offset-lg-2" %>
         <%= f.text_area :comment, class: "col-lg-3 offset-lg-1" %>
       </div>
       <div class="text-center mt-5 mr-5 pb-5">
-        <%= f.submit "更新", class: "btn btn-content" %>
+        <%= f.submit class: "btn btn-content" %>
         <%= link_to "メール", group_event_mail_path(@event.group, @event), class: 'btn btn-content'%>
       </div>
     </div>
