@@ -1,0 +1,14 @@
+ja:
+  user:
+    email: "メールアドレス"
+    password: "パスワード"
+    family_name: "名前(姓)"
+    first_name: "名前(名)"
+    nickname: "ニックネーム"
+    image: "アイコン"
+    birthday: "誕生日"
+    favorite_food: "好きな食べ物"
+    favorite_drink: "好きな飲み物"
+    hated_food: "嫌いな食べ物"
+    public_uid: "ID"
+    name: "名前"
