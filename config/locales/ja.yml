@@ -10,6 +10,8 @@ ja:
       user: ユーザー
       group: グループ
       event: イベント
+      question: アンケート
+      answer: 回答
     attributes:
       user:
         email: "メールアドレス"
@@ -36,12 +38,19 @@ ja:
         cost: "費用"
         site_url: "サイトURL"
         comment: "備考"
+        time: "時間"
       question:
         title: "アンケート内容"
         first_candidate: "候補日１"
+        second_candidate: "候補日２"
+        final_candidate: "候補日３"
       task:
         task: "タスク"
         limit_date: "期限"
+      answer:
+        first_candidate: "候補日１"
+        second_candidate: "候補日２"
+        final_candidate: "候補日３"
   date:
     abbr_day_names:
     - 日

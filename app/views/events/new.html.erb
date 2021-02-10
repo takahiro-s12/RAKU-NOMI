@@ -13,9 +13,9 @@
   <div class="mt-5 text-center">
     <%= form_with model: @event, url: group_events_path(@group), method: :post, local: true do |f| %>
       <div class="event-new">
-        <%= f.label "飲み会名" %>
+        <%= f.label :name %>
         <%= f.text_field :name %>
-        <%= f.label "日にち" %>
+        <%= f.label :date %>
         <%= f.date_field :date %>
       </div>
       <div class="mt-5 border-top border-dark">
