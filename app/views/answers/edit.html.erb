@@ -8,20 +8,20 @@
     <%= form_with model: @answer, url: group_question_answer_path(@group, @question,@answer), method: :patch, local: true do |f| %>
       <table class="table table-borderless">
         <tr>
-          <td><%= f.label "候補日1" %></td>
+          <td><%= f.label :first_candidate %></td>
           <td class="text-left"><%= f.label @question.first_candidate %></td>
           <td><%= f.check_box :first_candidate, {}, "true", "false" %></td>
         </tr>
         <% if @question.second_candidate.present? %>
           <tr>
-            <td><%= f.label "候補日2" %></td>
+            <td><%= f.label :second_candidate %></td>
             <td class="text-left"><%= f.label @question.second_candidate %></td>
             <td><%= f.check_box :second_candidate, {}, "true", "false" %></td>
           </tr>
         <% end %>
         <% if @question.final_candidate.present? %>
           <tr>
-            <td><%= f.label "候補日3" %></td>
+            <td><%= f.label :final_candidate %></td>
             <td class="text-left"><%= f.label @question.final_candidate %></td>
             <td><%= f.check_box :final_candidate, {}, "true", "false" %></td>
           </tr>
